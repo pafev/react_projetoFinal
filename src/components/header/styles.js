@@ -11,63 +11,56 @@ nav {
     height: 4.2rem;
     width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    padding: 0 2.5rem 0 2rem;
 }
 
-.navTop .navTopLeft {
+.navTopLeft {
+    cursor: pointer;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    vertical-align: middle;
-    margin-left: 1.5rem;
-}
-
-.navTop .navTopLeft p {
     font-size: 1.3rem;
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.navTop .navTopLeft img {
-    position: relative;
+.navTopLeft img {
     width: 2.1rem;
     height: 2rem;
-    margin-right: 0.5rem;
+    margin-right: 0.3rem;
 }
 
-.navTop .navTopRight {
+.navTopRight {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    margin-right: 2rem;
 }
 
-.navTop .navTopRight img {
+.navTopRight img {
+    cursor: pointer;
     width: 1.8rem;
     height: 1.9rem;
     margin-left: 0.6rem;
 }
 
-.navTop .Pesquisar {
+.navTopRight .Pesquisar {
     display: flex;
     background-color: white;
-    height: 2rem;
+    height: 2.1rem;
     width: 26rem;
     justify-content: space-between;
     padding: 0.5rem;
     border-radius: 2px;
     margin-right: 1rem;
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-.navTop .Pesquisar input {
+.navTopRight .Pesquisar input {
     outline: none;
     border: none;
     width: 100%;
     font-size: 15px;
 }
 
-.navTop .Pesquisar img {
+.navTopRight .Pesquisar img {
     height: 1.1rem;
     width: 1.1rem;
     align-self: center;
@@ -78,38 +71,32 @@ nav {
     color: white;
     background-color: black;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     height: 2.6rem;
     font-weight:600;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-.navBottomRight {
-    display: flex;
-    flex-direction: row;
+    box-shadow: 1px 1px rgba(0,0,0,0.5);
 }
 
 .navBottomLeft {
     display: flex;
-    flex-direction: row;
     margin: 0.6rem 0 0 1.3rem;
 }
 
 .navBottomRight {
     display: flex;
-    flex-direction: row;
     margin: 0.6rem 2.2rem 0 0rem;
 }
 
 .navBottom p{
     margin: 0 0.5rem;
+    cursor: pointer;
 }
 
 .navBottomRight img {
     width: 1.1rem;
     height: 1.1rem;
     margin-left: 0.5rem;
+    cursor: pointer;
 }
-
 `
