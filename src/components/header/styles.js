@@ -16,11 +16,13 @@ nav {
 }
 
 .navTopLeft {
+    text-decoration: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     font-size: 1.3rem;
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: black;
 }
 
 .navTopLeft img {
@@ -68,6 +70,7 @@ nav {
 }
 
 .navBottom {
+    text-decoratiion: none;
     color: white;
     background-color: black;
     display: flex;
@@ -88,7 +91,9 @@ nav {
     margin: 0.6rem 2.2rem 0 0rem;
 }
 
-.navBottom p{
+.navBottom .link{
+    text-decoration: none;
+    color: white;
     margin: 0 0.5rem;
     cursor: pointer;
 }
