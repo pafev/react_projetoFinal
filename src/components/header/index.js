@@ -27,14 +27,14 @@ const Header = () => {
 
             <nav className="navBottom">
                 <div className="navBottomLeft">
-                    <Link to='/' className="link">Home</Link>
-                    <Link to='/sobre' className="link">About Us</Link>
+                    <Link to='/' className="link" id='home'>Home</Link>
+                    <Link to='/sobre' className="link" id='about'>About Us</Link>
                 </div>
                 
                 <div className="navBottomRight">
-                    <Link to='/entrar' className="link">Entrar</Link>
-                    <Link to='registrar' className="link">Registrar</Link>
-                    <Link to='/perfil'>
+                    <Link to='/entrar' className="link" id='login'>Entrar</Link>
+                    <Link to='registrar' className="link" id='register'>Registrar</Link>
+                    <Link to='/perfil' id="profile">
                         <img src={iconPerfil} alt='perfil'></img>
                     </Link>
                 </div>
