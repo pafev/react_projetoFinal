@@ -11,3 +11,17 @@ body {
 html {
     scroll-behavior: smooth;
   }
+
+body::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: #CCCCCC;
+}
+
+body::-webkit-scrollbar-button {
+    display: none;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #333333;
+}
