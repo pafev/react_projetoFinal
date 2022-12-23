@@ -1,8 +1,11 @@
 import styled from 'styled-components'
-
 export const Container = styled.header`
 nav {
     position: sticky;
+}
+
+.Menu, .pesquisarButtonResponsive {
+    display: none;
 }
 
 .navTop {
@@ -199,7 +202,7 @@ nav {
     transform: scaleX(0);
     height: 1.25rem;
     bottom: 0;
-    right: 1.7rem;
+    right: 1.8rem;
     transform-origin: bottom right;
     transition: transform 0.25s ease;
 }
@@ -257,25 +260,70 @@ nav {
     margin: auto;
 }
 
-/* .pesquisarButton::before {  
-    content: '';
-    position: absolute;
-    top: -0.4rem;
-    right: -0.2rem;
-    width: 2.1rem;
-    height: 2.3em;
-    border: 1px solid black;
-    border-radius: 50%;
-    z-index: -1;
-    transform: scale(0);
-    transition: 0.3s cubic-bezier(.95, .32, .37, 1.21);
+/* daqui para baixo fica o código para questão da responsividade */
+
+@media only screen and (max-width: 710px) {
+    #about, .navTopRight .Pesquisar, #iconCarrinho {
+        display: none;
+    }
+
+    .pesquisarButtonResponsive, .Menu {
+        margin: 0 0.75rem;
+    }
+
+    .navTop {
+        padding-right: 1.2rem;
+    }
+
+    .navTopRight .pesquisarButtonResponsive {
+        display: inherit;
+        position: relative;
+        height: 1.3rem;
+        width: auto;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+    }
+    
+    .navTopRight .pesquisarButtonResponsive img {
+        height: 100%;
+        width: 100%;
+        opacity: 0.6;
+    }
+
+    .navTopRight .Menu {
+        display: inherit;
+        position: relative;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        height: 1.5rem;
+        width: auto;
+    }
+
+    .navTopRight .Menu img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* animações para navbar responsiva */
+    .navTopRight .pesquisarButtonResponsive img:hover,
+    .navTopRight .Menu img:hover
+    {
+        transform: translateY(-2px);
+        transition: 0.25s ease-out;
+    }
+
+    .navTopRight .pesquisarButtonResponsive img:active,
+    .navTopRight .Menu img:active
+    {
+        transform: translateY(2px);
+    }
 }
 
-.pesquisarButton:hover::before {  
-    transform: scale(1);
+@media only screen and (max-width: 319px) {
+    .navTopLeft p{
+        display: none;
+    }
 }
-
-.pesquisarButton:active::before{
-    border: 1px solid #fff;
-} */
 `
