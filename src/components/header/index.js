@@ -16,10 +16,12 @@ const Header = () => {
 
                 <div className="navTopRight">
                     <div className="Pesquisar">
-                        <input placeholder="Pesquise seu produto"></input>
-                        <img src={searchIcon} alt="pesquisar"></img>
+                        <input placeholder="Pesquise seu produto" type="search"></input>
+                        <button className="pesquisarButton">
+                            <img src={searchIcon} alt="pesquisar"></img>
+                        </button>
                     </div>
-                    <Link to='/carrinho'>
+                    <Link to='/carrinho' id="iconCarrinho">
                         <img src={cartIcon} alt='carrinho'></img>
                     </Link>
                 </div>
