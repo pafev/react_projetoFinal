@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 export const Container = styled.header`
-nav {
-    position: sticky;
-}
+position: sticky;
+top: 0;
+overflow: hidden;
+z-index: 1;
 
 .Menu, .pesquisarButtonResponsive {
     display: none;
@@ -80,6 +81,7 @@ nav {
 }
 
 .navBottom {
+    width: 100%;
     color: white;
     background-color: black;
     display: flex;
