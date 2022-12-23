@@ -3,7 +3,7 @@ import logo from '../../assets/e-commerce.png'
 import iconPerfil from '../../assets/perfil-icon-white.png'
 import cartIcon from '../../assets/Shopping-Cart-icon.png'
 import searchIcon from '../../assets/search-icon.png'
-import menuIcon from '../../assets/menu.png'
+// import menuIcon from '../../assets/menu.png'
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -22,15 +22,15 @@ const Header = () => {
                             <img src={searchIcon} alt="pesquisar"></img>
                         </button>
                     </div>
-                    <Link to='/carrinho' id="iconCarrinho">
-                        <img src={cartIcon} alt='carrinho'></img>
-                    </Link>
                     <button className="pesquisarButtonResponsive">
                         <img src={searchIcon} alt="pesquisar"></img>
                     </button>
-                    <button className="Menu">
+                    <Link to='/carrinho' id="iconCarrinho">
+                        <img src={cartIcon} alt='carrinho'></img>
+                    </Link>
+                    {/* <button className="Menu">
                         <img src={menuIcon} alt='menu'></img>
-                    </button>
+                    </button> */}
                 </div>
             </nav>
 

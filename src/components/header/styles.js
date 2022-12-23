@@ -40,6 +40,8 @@ z-index: 1;
 }
 
 .navTopRight #iconCarrinho img {
+    position: relative;
+    top: 0.1rem;
     cursor: pointer;
     width: 1.8rem;
     height: 1.9rem;
@@ -228,33 +230,36 @@ z-index: 1;
     transform: translateY(2px);
 } */
 
-#iconCarrinho {  
-    transition: .5s linear;
-    z-index: 1;
-    margin: auto
-  }
-  
-#iconCarrinho::before {  
-    content: '';
-    position: absolute;
-    top: 0.7rem;
-    right: 2.1rem;
-    width: 2.3rem;
-    height: 2.3em;
-    border: 1px solid black;
-    border-radius: 50%;
-    z-index: -1;
-    transform: scale(0);
-    transition: 0.3s cubic-bezier(.95, .32, .37, 1.21);
-}
+@media only screen  and (min-width: 710px) {
+    #iconCarrinho {  
+        transition: .5s linear;
+        z-index: 1;
+        margin: auto
+    }
+      
+    #iconCarrinho::before {  
+        content: '';
+        position: absolute;
+        top: 0.7rem;
+        right: 2.1rem;
+        width: 2.3rem;
+        height: 2.3em;
+        border: 1px solid black;
+        border-radius: 50%;
+        z-index: -1;
+        transform: scale(0);
+        transition: 0.3s cubic-bezier(.95, .32, .37, 1.21);
+    }
+        
+    #iconCarrinho:hover::before {  
+        transform: scale(1);
+    }
     
-#iconCarrinho:hover::before {  
-    transform: scale(1);
+    #iconCarrinho:active::before{
+        border: 1px solid #fff;
+    }
 }
 
-#iconCarrinho:active::before{
-    border: 1px solid #fff;
-}
 
 .pesquisarButton {  
     transition: .5s linear;
@@ -265,7 +270,7 @@ z-index: 1;
 /* daqui para baixo fica o código para questão da responsividade */
 
 @media only screen and (max-width: 710px) {
-    #about, .navTopRight .Pesquisar, #iconCarrinho {
+    #about, .navTopRight .Pesquisar {
         display: none;
     }
 
@@ -310,14 +315,14 @@ z-index: 1;
 
     /* animações para navbar responsiva */
     .navTopRight .pesquisarButtonResponsive img:hover,
-    .navTopRight .Menu img:hover
+    .navTopRight #iconCarrinho img:hover
     {
         transform: translateY(-2px);
         transition: 0.25s ease-out;
     }
 
     .navTopRight .pesquisarButtonResponsive img:active,
-    .navTopRight .Menu img:active
+    .navTopRight #iconCarrinho img:active
     {
         transform: translateY(2px);
     }
