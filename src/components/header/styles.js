@@ -1,6 +1,8 @@
 import styled from 'styled-components'
+
 export const Container = styled.header`
 overflow: hidden;
+z-index: 1;
 
 #hiddenNav {
     top: 1.65rem;
@@ -18,7 +20,7 @@ overflow: hidden;
 
 .navTop {
     box-shadow: 0px 2px 7px rgba(0,0,0,0.5);
-    z-index: 1;
+    z-index: 2;
     position: fixed;
     top: 0;
     background-color: #F3F3F3;
@@ -65,7 +67,7 @@ overflow: hidden;
     width: 26rem;
     justify-content: space-between;
     padding: 0.5rem;
-    border-radius: 4px;
+    border-radius: 6px;
     margin-right: 1.6rem;
     border: 1px solid rgba(0, 0, 0, 0.3);
 }
@@ -94,6 +96,7 @@ overflow: hidden;
 }
 
 .navBottom {
+    z-index: 1;
     position: fixed;
     top: 4.2rem;
     width: 100%;
@@ -103,7 +106,8 @@ overflow: hidden;
     justify-content: space-between;
     height: 2.5rem;
     font-weight:600;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
     transition: top 0.2s;
 }
 
@@ -139,11 +143,9 @@ overflow: hidden;
     content: '______';
     font-size: 18px;
     position: absolute;
-    width: 3.4rem;
+    bottom: -0.2rem;
+    left: 1.58rem;
     transform: scaleX(0);
-    height: 1.25rem;
-    bottom: 0;
-    left: 1.65rem;
     transform-origin: bottom right;
     transition: transform 0.25s ease;
 }
@@ -156,13 +158,11 @@ overflow: hidden;
 .navBottom .navBottomLeft #about:after {
     color: white;
     content: '________';
-    font-size: 19px;
+    font-size: 18px;
     position: absolute;
-    max-width: 4.7rem;
+    bottom: -0.2rem;
+    left: 5.65rem;
     transform: scaleX(0);
-    height: 1.3rem;
-    bottom: 0;
-    left: 5.6rem;
     transform-origin: bottom right;
     transition: transform 0.25s ease;
 }
@@ -177,11 +177,9 @@ overflow: hidden;
     content: '______';
     font-size: 18px;
     position: absolute;
-    width: 3.4rem;
+    bottom: -0.2rem;
+    right: 9.5rem;
     transform: scaleX(0);
-    height: 1.25rem;
-    bottom: 0;
-    right: 9.3rem;
     transform-origin: bottom right;
     transition: transform 0.25s ease;
 }
@@ -196,11 +194,9 @@ overflow: hidden;
     content: '________';
     font-size: 19px;
     position: absolute;
-    width: 4.7rem;
+    bottom: -0.2rem;
+    right: 4.05rem;
     transform: scaleX(0);
-    height: 1.3rem;
-    bottom: 0;
-    right: 4.1rem;
     transform-origin: bottom right;
     transition: transform 0.25s ease;
 }
@@ -215,11 +211,9 @@ overflow: hidden;
     content: '___';
     font-size: 18px;
     position: absolute;
-    width: 1.8rem;
     transform: scaleX(0);
-    height: 1.25rem;
-    bottom: 0;
-    right: 1.8rem;
+    bottom: -0.2rem;
+    right: 1.9rem;
     transform-origin: bottom right;
     transition: transform 0.25s ease;
 }
@@ -230,7 +224,7 @@ overflow: hidden;
 }
 
 .navBottom #profile:active, #home:active, #about:active, #login:active, #register:active {
-    color: #F3F3F3;
+    opacity: 0.92;
 }
 
 
