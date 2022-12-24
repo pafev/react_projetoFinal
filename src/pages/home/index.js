@@ -1,7 +1,7 @@
 import { Container } from "./styles"
-import downIcon from '../../assets/down white icon.png'
+import Dropdown from "../../components/dropdown"
 
-const Home = () => {
+const Home = () => {    
     return (
         <Container>
         <link href="https://fonts.cdnfonts.com/css/jomolhari" rel="stylesheet"></link>
@@ -12,26 +12,9 @@ const Home = () => {
             </div>
             <section className="exhibition">
                 <div className="filters">
-                    <button className="categories">
-                        <p>
-                            Categoria <img src={downIcon} alt='seta'></img>
-                        </p>
-                    </button>
-                    <button className="price">
-                        <p>
-                            Preço <img src={downIcon} alt='seta'></img>
-                        </p>
-                    </button>
-                    <button className="brand">
-                        <p>
-                            Marca <img src={downIcon} alt='seta'></img>
-                        </p>
-                    </button>
-                    {/* <button className="filterResponsive">
-                        <p>
-                            Filtros <img src={downIcon} alt="seta"></img>
-                        </p>
-                    </button> */}
+                    <Dropdown name={'Categoria'} />
+                    <Dropdown name={'Preço'} />
+                    <Dropdown name={'Marca'} />
                 </div>
                 <div className="products">
                     <p>

@@ -22,7 +22,7 @@ export const Container = styled.section`
     align-items: center;
     justify-content: space-around;
     position: relative;
-    margin-top: 2rem;
+    margin: 2rem 1rem 0rem 0rem;
     height: 8rem;
     width: 43rem;
     background-color: rgba(0,0,0,0.7);
@@ -55,59 +55,23 @@ export const Container = styled.section`
     box-shadow: 0px 3px 9px rgba(0,0,0,0.6);
 }
 
-.filters button {
-    border-bottom: 3px solid white;
-    margin: 0rem 0.8rem;
-    padding: auto 0rem;
-    width: 24%;
-    display: flex;
-    align-items: center;
-    background-color: black;
-    outline: none;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    font-family: 'Courier New', Courier, monospace, sans-serif;
-    font-weight: bold;
-}
-
-.filters button p {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    position: relative;
-    left: 0.5rem;
-}
-
-.filters img {
-    height: 2rem;
-}
-
-
-// animações para os filtros
-
-.filters button:hover {
-    border-bottom: 5px solid white;
-    transition: border-bottom 0.25s ease;
-}
-
-.filters button:active {
-    opacity: 0.95;
-    transform: translateY(1px);
-}
-
 // parte da responsividade do welcome e dos filtros
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 894px) {
+    .welcome div {
+        margin-right: 0rem;
+    }
+
     .welcome div h1 {
         font-size: 36px;
     }
 
     .filters {
+        padding: 0 0.5rem;
         position: relative;
         top: -2rem;
         margin: 0 auto;
-        width: 95vw;
+        width: 90vw;
         height: 10vh;
         display: flex;
         justify-content: space-between;
@@ -117,17 +81,13 @@ export const Container = styled.section`
     }
 
     .filters button {
-        margin: 0rem 0rem;
         padding: auto 0rem;
-        width: 20vw;
-        min-width: 5.7rem;
-        font-size: 13px;
-        /* background-color: blue; */
+        font-size: 14px;
     }
 
-    .filters .price {
-        position: relative;
-        left: 0.4rem;
+    .filters .dropdown {
+        margin: 0rem;
+        width: 5.2rem;
     }
 
     .filters button p {
@@ -135,7 +95,7 @@ export const Container = styled.section`
         align-items: center;
         margin: 0 auto;
         position: relative;
-        left: 0.3rem;
+        left: 0.25rem;
     }
 
     .filters img {
