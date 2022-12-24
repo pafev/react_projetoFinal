@@ -1,15 +1,28 @@
 import styled from 'styled-components'
+
 export const Container = styled.header`
-position: sticky;
-top: 0;
 overflow: hidden;
 z-index: 1;
+
+#hiddenNav {
+    top: 1.65rem;
+}
+
+.navBottom {
+    position: fixed;
+    width: 100%;
+    top: 4.2rem;
+}
 
 .Menu, .pesquisarButtonResponsive {
     display: none;
 }
 
 .navTop {
+    box-shadow: 0px 2px 7px rgba(0,0,0,0.5);
+    z-index: 2;
+    position: fixed;
+    top: 0;
     background-color: #F3F3F3;
     height: 4.2rem;
     width: 100%;
@@ -40,6 +53,8 @@ z-index: 1;
 }
 
 .navTopRight #iconCarrinho img {
+    position: relative;
+    top: 0.1rem;
     cursor: pointer;
     width: 1.8rem;
     height: 1.9rem;
@@ -52,7 +67,7 @@ z-index: 1;
     width: 26rem;
     justify-content: space-between;
     padding: 0.5rem;
-    border-radius: 2px;
+    border-radius: 6px;
     margin-right: 1.6rem;
     border: 1px solid rgba(0, 0, 0, 0.3);
 }
@@ -81,6 +96,9 @@ z-index: 1;
 }
 
 .navBottom {
+    z-index: 1;
+    position: fixed;
+    top: 4.2rem;
     width: 100%;
     color: white;
     background-color: black;
@@ -88,8 +106,9 @@ z-index: 1;
     justify-content: space-between;
     height: 2.5rem;
     font-weight:600;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    box-shadow: 1px 1px rgba(0,0,0,0.5);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+    transition: top 0.2s;
 }
 
 .navBottomLeft {
@@ -124,11 +143,9 @@ z-index: 1;
     content: '______';
     font-size: 18px;
     position: absolute;
-    width: 3.4rem;
+    bottom: -0.2rem;
+    left: 1.58rem;
     transform: scaleX(0);
-    height: 1.25rem;
-    bottom: 0;
-    left: 1.65rem;
     transform-origin: bottom right;
     transition: transform 0.25s ease;
 }
@@ -141,13 +158,11 @@ z-index: 1;
 .navBottom .navBottomLeft #about:after {
     color: white;
     content: '________';
-    font-size: 19px;
+    font-size: 18px;
     position: absolute;
-    max-width: 4.7rem;
+    bottom: -0.2rem;
+    left: 5.65rem;
     transform: scaleX(0);
-    height: 1.3rem;
-    bottom: 0;
-    left: 5.6rem;
     transform-origin: bottom right;
     transition: transform 0.25s ease;
 }
@@ -162,11 +177,9 @@ z-index: 1;
     content: '______';
     font-size: 18px;
     position: absolute;
-    width: 3.4rem;
+    bottom: -0.2rem;
+    right: 9.5rem;
     transform: scaleX(0);
-    height: 1.25rem;
-    bottom: 0;
-    right: 9.3rem;
     transform-origin: bottom right;
     transition: transform 0.25s ease;
 }
@@ -181,11 +194,9 @@ z-index: 1;
     content: '________';
     font-size: 19px;
     position: absolute;
-    width: 4.7rem;
+    bottom: -0.2rem;
+    right: 4.05rem;
     transform: scaleX(0);
-    height: 1.3rem;
-    bottom: 0;
-    right: 4.1rem;
     transform-origin: bottom right;
     transition: transform 0.25s ease;
 }
@@ -200,11 +211,9 @@ z-index: 1;
     content: '___';
     font-size: 18px;
     position: absolute;
-    width: 1.8rem;
     transform: scaleX(0);
-    height: 1.25rem;
-    bottom: 0;
-    right: 1.8rem;
+    bottom: -0.2rem;
+    right: 1.9rem;
     transform-origin: bottom right;
     transition: transform 0.25s ease;
 }
@@ -215,7 +224,7 @@ z-index: 1;
 }
 
 .navBottom #profile:active, #home:active, #about:active, #login:active, #register:active {
-    color: #F3F3F3;
+    opacity: 0.92;
 }
 
 
@@ -228,33 +237,36 @@ z-index: 1;
     transform: translateY(2px);
 } */
 
-#iconCarrinho {  
-    transition: .5s linear;
-    z-index: 1;
-    margin: auto
-  }
-  
-#iconCarrinho::before {  
-    content: '';
-    position: absolute;
-    top: 0.7rem;
-    right: 2.1rem;
-    width: 2.3rem;
-    height: 2.3em;
-    border: 1px solid black;
-    border-radius: 50%;
-    z-index: -1;
-    transform: scale(0);
-    transition: 0.3s cubic-bezier(.95, .32, .37, 1.21);
-}
+@media only screen  and (min-width: 710px) {
+    #iconCarrinho {  
+        transition: .5s linear;
+        z-index: 1;
+        margin: auto
+    }
+      
+    #iconCarrinho::before {  
+        content: '';
+        position: absolute;
+        top: 0.7rem;
+        right: 2.1rem;
+        width: 2.3rem;
+        height: 2.3em;
+        border: 1px solid black;
+        border-radius: 50%;
+        z-index: -1;
+        transform: scale(0);
+        transition: 0.3s cubic-bezier(.95, .32, .37, 1.21);
+    }
+        
+    #iconCarrinho:hover::before {  
+        transform: scale(1);
+    }
     
-#iconCarrinho:hover::before {  
-    transform: scale(1);
+    #iconCarrinho:active::before{
+        border: 1px solid #fff;
+    }
 }
 
-#iconCarrinho:active::before{
-    border: 1px solid #fff;
-}
 
 .pesquisarButton {  
     transition: .5s linear;
@@ -265,7 +277,7 @@ z-index: 1;
 /* daqui para baixo fica o código para questão da responsividade */
 
 @media only screen and (max-width: 710px) {
-    #about, .navTopRight .Pesquisar, #iconCarrinho {
+    #about, .navTopRight .Pesquisar {
         display: none;
     }
 
@@ -310,14 +322,14 @@ z-index: 1;
 
     /* animações para navbar responsiva */
     .navTopRight .pesquisarButtonResponsive img:hover,
-    .navTopRight .Menu img:hover
+    .navTopRight #iconCarrinho img:hover
     {
         transform: translateY(-2px);
         transition: 0.25s ease-out;
     }
 
     .navTopRight .pesquisarButtonResponsive img:active,
-    .navTopRight .Menu img:active
+    .navTopRight #iconCarrinho img:active
     {
         transform: translateY(2px);
     }
