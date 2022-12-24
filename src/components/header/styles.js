@@ -1,15 +1,26 @@
 import styled from 'styled-components'
 export const Container = styled.header`
-position: sticky;
-top: 0;
 overflow: hidden;
-z-index: 1;
+
+#hiddenNav {
+    top: 1.65rem;
+}
+
+.navBottom {
+    position: fixed;
+    width: 100%;
+    top: 4.2rem;
+}
 
 .Menu, .pesquisarButtonResponsive {
     display: none;
 }
 
 .navTop {
+    box-shadow: 0px 2px 7px rgba(0,0,0,0.5);
+    z-index: 1;
+    position: fixed;
+    top: 0;
     background-color: #F3F3F3;
     height: 4.2rem;
     width: 100%;
@@ -54,7 +65,7 @@ z-index: 1;
     width: 26rem;
     justify-content: space-between;
     padding: 0.5rem;
-    border-radius: 2px;
+    border-radius: 4px;
     margin-right: 1.6rem;
     border: 1px solid rgba(0, 0, 0, 0.3);
 }
@@ -83,6 +94,8 @@ z-index: 1;
 }
 
 .navBottom {
+    position: fixed;
+    top: 4.2rem;
     width: 100%;
     color: white;
     background-color: black;
@@ -91,7 +104,7 @@ z-index: 1;
     height: 2.5rem;
     font-weight:600;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    box-shadow: 1px 1px rgba(0,0,0,0.5);
+    transition: top 0.2s;
 }
 
 .navBottomLeft {

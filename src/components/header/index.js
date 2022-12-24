@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Container } from "./styles";
 import logo from '../../assets/e-commerce.png'
 import iconPerfil from '../../assets/perfil-icon-white.png'
@@ -7,6 +8,25 @@ import searchIcon from '../../assets/search-icon.png'
 import { Link } from "react-router-dom";
 
 const Header = () => {
+
+    const [someNav, setSomeNav] = useState()
+    
+    useEffect(() => {
+        let localizacaoScroll = window.scrollY
+        const posicaoScroll = () => {
+        let deslocamentoAtual = window.scrollY
+        if(localizacaoScroll >= deslocamentoAtual){
+            setSomeNav(false)
+        }
+        else{
+            setSomeNav(true)
+        }
+        localizacaoScroll = deslocamentoAtual
+        }
+
+        window.addEventListener('scroll', posicaoScroll)
+    },[])
+
     return (
         <Container>
             <nav className="navTop">
@@ -34,7 +54,7 @@ const Header = () => {
                 </div>
             </nav>
 
-            <nav className="navBottom">
+            <nav className="navBottom" id={someNav? 'hiddenNav' : ''}>
                 <div className="navBottomLeft">
                     <Link to='/' className="link" id='home'>Home</Link>
                     <Link to='/sobre' className="link" id='about'>About Us</Link>
