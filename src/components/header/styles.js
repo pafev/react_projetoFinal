@@ -64,7 +64,7 @@ z-index: 1;
     display: flex;
     background-color: white;
     height: 2.1rem;
-    width: 26rem;
+    width: 24rem;
     justify-content: space-between;
     padding: 0.5rem;
     border-radius: 6px;
@@ -125,14 +125,6 @@ z-index: 1;
     text-decoration: none;
     color: white;
     margin: 0 0.75rem;
-    cursor: pointer;
-}
-
-.navBottomRight img {
-    padding-bottom: 0.6rem;
-    width: 1.1rem;
-    height: auto;
-    margin-left: 0.5rem;
     cursor: pointer;
 }
 
