@@ -1,7 +1,24 @@
 import { Container } from "./styles"
-import downIcon from '../../assets/down white icon.png'
+import Dropdown from "../../components/dropdown"
+import { useEffect, useState } from "react"
+import { api } from "../../services/api"
+import DropdownPrice from "../../components/dropdownPrice"
 
-const Home = () => {
+const Home = () => {   
+    
+    const [categories, setCategories] = useState([])
+    const [brands, setBrands] = useState([])
+
+    useEffect( () => {
+        api.get('/categories/index').then(response => {
+            setCategories(response.data)
+        })
+
+        api.get('/brands/index').then(response => {
+            setBrands(response.data)
+        })
+    },[])
+
     return (
         <Container>
         <link href="https://fonts.cdnfonts.com/css/jomolhari" rel="stylesheet"></link>
@@ -12,26 +29,9 @@ const Home = () => {
             </div>
             <section className="exhibition">
                 <div className="filters">
-                    <button className="categories">
-                        <p>
-                            Categoria <img src={downIcon} alt='seta'></img>
-                        </p>
-                    </button>
-                    <button className="price">
-                        <p>
-                            Preço <img src={downIcon} alt='seta'></img>
-                        </p>
-                    </button>
-                    <button className="brand">
-                        <p>
-                            Marca <img src={downIcon} alt='seta'></img>
-                        </p>
-                    </button>
-                    {/* <button className="filterResponsive">
-                        <p>
-                            Filtros <img src={downIcon} alt="seta"></img>
-                        </p>
-                    </button> */}
+                    <Dropdown name={'Categoria'} array={categories}/>
+                    <DropdownPrice />
+                    <Dropdown name={'Marca'} array={brands}/>
                 </div>
                 <div className="products">
                     <p>
