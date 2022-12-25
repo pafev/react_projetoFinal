@@ -3,7 +3,7 @@ import downIcon from '../../assets/down white icon.png'
 import { Link } from "react-router-dom"
 import { Container } from "./styles"
 
-const Dropdown = ({name}) => {
+const Dropdown = ({name, array}) => {
     let contentRef = useRef()
     const [openDropdown, setOpenDropdown] = useState(false)
 
@@ -25,9 +25,9 @@ const Dropdown = ({name}) => {
                 </p>
             </button>
             <div className="dropdown-content" id={openDropdown? 'contentShow' : ''}>
-                <Link className="item" to='/'>Item 1</Link>
-                <Link className="item" to='/'>Item 2</Link>
-                <Link className="item" to='/'>Item 3</Link>
+                {array.map((object, index) => (
+                    <Link className="item" to='/' key={index}>{object.name}</Link>
+                ))}
             </div>
         </div>
         </Container>
