@@ -3,7 +3,6 @@ import { Container } from "./styles";
 import logo from '../../assets/e-commerce.png'
 import cartIcon from '../../assets/Shopping-Cart-icon.png'
 import searchIcon from '../../assets/search-icon.png'
-// import menuIcon from '../../assets/menu.png'
 import { Link } from "react-router-dom";
 import DropdownPerfil from '../dropdownPerfil';
 
