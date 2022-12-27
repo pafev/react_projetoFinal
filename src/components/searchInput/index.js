@@ -24,7 +24,7 @@ const SearchInput = ( {array} ) => {
                         setText(event.target.value)
                     }, delaySearch)
                     }} 
-                    />
+                />
                 <BiSearchAlt className="iconSearch"/>
             </div>
             <div className="searchedProducts">

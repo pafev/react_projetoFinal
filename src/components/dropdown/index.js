@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from "react"
-import { Link } from "react-router-dom"
 import { Container } from "./styles"
 import { BsChevronDoubleDown } from 'react-icons/bs'
 
-const Dropdown = ({name, array}) => {
+const Dropdown = ({name, array, setObjectId}) => {
+    // para deixar o dropdown funcional
     let contentRef = useRef()
     const [openDropdown, setOpenDropdown] = useState(false)
-
     useEffect( () => {
         let handler = (event) => {
             if(!contentRef.current.contains(event.target)){
@@ -15,6 +14,8 @@ const Dropdown = ({name, array}) => {
         }
         document.addEventListener('mousedown', handler)
     },[])
+
+    // para deixar os botões do dropdown funcional
 
     return(
         <Container>
@@ -26,7 +27,9 @@ const Dropdown = ({name, array}) => {
             </button>
             <div className="dropdown-content" id={openDropdown? 'contentShow' : ''}>
                 {array.map((object, index) => (
-                    <Link className="item" to='/' key={index}>{object.name}</Link>
+                    <button className="item" onClick={() => setObjectId(object.id)} key={index}>
+                        {object.name}
+                    </button>
                 ))}
             </div>
         </div>
