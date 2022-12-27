@@ -39,23 +39,48 @@ export const Container = styled.section`
 .exhibition {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-around; */
+}
+
+.exhibition .searchContent {
+    position: relative;
+    top: -2.15rem;
+    width: 58vw;
+    height: 4.3rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
+}
+
+.exhibition input {
+    width: 90%;
+    height: 50%;
+    outline: none;
+    border: none;
+    background-color: inherit;
+    margin: 0 auto;
+    font-size: 0.9rem;
+}
+
+.searchContent .iconSearch {
+    position: absolute;
+    right: 4%;
+    font-size: 1.05rem;
 }
 
 // ajustes do dropdown
 
 .filters {
     position: relative;
-    top: -2.5rem;
-    margin: 0 auto;
-    width: 52vw;
-    height: 14vh;
+    width: 18vw;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    background-color: black;
-    box-shadow: 0px 3px 9px rgba(0,0,0,0.6);
-    border-radius: 5px;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
 }
 
 .dropdownBtn {
@@ -66,27 +91,23 @@ export const Container = styled.section`
     background-color: black;
     outline: none;
     color: white;
-    font-size: 20px;
     cursor: pointer;
-    font-family: 'Times New Roman', Times, sans-serif;
-    font-weight: bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
 }
 
 .dropdown {
-    height: 100%;
-    width: 8rem;
+    height: 3.3rem;
+    width: 10rem;
     position: relative;
     display: inline-block;
-    border-bottom: 3px solid white;
-    margin: 0rem 0.8rem;
+    margin: 1rem;
 }
 
 .dropdown-content {
     display: block;
     position: absolute;
-    left: -10%;
-    background-color: #f9f9f9;
-    width: 120%;
+    width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     opacity: 0;
@@ -109,6 +130,7 @@ export const Container = styled.section`
     text-decoration: none;
     display: block;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .dropdown-content .item:hover {color: rgba(255, 255, 255, 0.8)}
@@ -116,9 +138,8 @@ export const Container = styled.section`
 .dropdownBtn p {
     display: flex;
     align-items: center;
-    margin: 0 auto;
     position: relative;
-    left: 0.5rem;
+    left: 0.3rem;
 }
 
 // parte da responsividade do welcome e dos filtros
@@ -171,11 +192,10 @@ export const Container = styled.section`
 
 .products {
     display: flex;
-    height: 20rem;
 }
 
-.products p {
-    margin: auto auto;
+.products .productsContent {
+    margin: 3rem auto;
     font-size: 20px;
 }
 `

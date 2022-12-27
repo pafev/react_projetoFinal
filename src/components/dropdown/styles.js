@@ -1,7 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-img {
-    height: 1.5rem;
+#iconDown {
+    font-size: 1.1rem;
+    margin: 3px 0 0 5px;
 }
+
+.dropdownBtn p {
+    margin: 0 auto;
+}
+
 `
