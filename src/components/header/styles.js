@@ -4,21 +4,9 @@ export const Container = styled.header`
 overflow: hidden;
 z-index: 1;
 
-#hiddenNav {
-    top: 1.65rem;
-}
-
-.navBottom {
-    position: fixed;
-    width: 100%;
-    top: 4.2rem;
-}
-
-.Menu, .pesquisarButtonResponsive {
-    display: none;
-}
-
 .navTop {
+    display: flex;
+    align-items: center;
     box-shadow: 0px 2px 7px rgba(0,0,0,0.5);
     z-index: 2;
     position: fixed;
@@ -37,7 +25,7 @@ z-index: 1;
     display: flex;
     align-items: center;
     font-size: 1.3rem;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: black;
 }
 
@@ -50,49 +38,29 @@ z-index: 1;
 .navTopRight {
     display: flex;
     align-items: center;
+    height: 53%;
+    text-decoration: none;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+    font-size: 1.2rem;
 }
 
-.navTopRight #iconCarrinho img {
-    position: relative;
-    top: 0.1rem;
-    cursor: pointer;
-    width: 1.8rem;
-    height: 1.9rem;
-}
-
-.navTopRight .Pesquisar {
+.navTopRight .contentCarrinho {
     display: flex;
-    background-color: white;
-    height: 2.1rem;
-    width: 24rem;
-    justify-content: space-between;
-    padding: 0.5rem;
-    border-radius: 6px;
-    margin-right: 1.6rem;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    align-items: center;
 }
 
-.navTopRight .Pesquisar input {
-    outline: none;
-    border: none;
-    width: 100%;
-    font-size: 15px;
+.navTopRight .iconCarrinho {
+    font-size: 1.6rem;
 }
 
-.navTopRight .pesquisarButton {
-    position: relative;
-    bottom: 0.1rem;
-    height: 1.3rem;
-    width: auto;
-    cursor: pointer;
-    background: transparent;
-    border: none;
+.navTopRight p {
+    margin-left: 0.6rem;
 }
 
-.navTopRight .pesquisarButton img {
-    height: 100%;
-    width: 100%;
-    opacity: 0.6;
+#hiddenNav {
+    top: 1.65rem;
 }
 
 .navBottom {
@@ -219,30 +187,24 @@ z-index: 1;
     opacity: 0.92;
 }
 
-
-/* .navTopRight .Pesquisar img:hover{
-    transform: translateY(-2px);
-    transition: 0.25s ease-out;
-}
-
-.navTopRight .Pesquisar img:active{
-    transform: translateY(2px);
-} */
-
 @media only screen  and (min-width: 710px) {
-    #iconCarrinho {  
+    .navTopRight .contentCarrinho { 
         transition: .5s linear;
         z-index: 1;
-        margin: auto
+        margin: auto;
+    }
+
+    .navTopRight .iconCarrinho:active {
+        height: 1.5rem;
+        transition: .2s ease;
     }
       
-    #iconCarrinho::before {  
+    .navTopRight .contentCarrinho::before {  
         content: '';
         position: absolute;
-        top: 0.7rem;
-        right: 2.1rem;
-        width: 2.3rem;
-        height: 2.3em;
+        right: 7.3rem;
+        width: 2rem;
+        height: 1.7em;
         border: 1px solid black;
         border-radius: 50%;
         z-index: -1;
@@ -250,79 +212,33 @@ z-index: 1;
         transition: 0.3s cubic-bezier(.95, .32, .37, 1.21);
     }
         
-    #iconCarrinho:hover::before {  
+    .navTopRight .contentCarrinho:hover::before {  
         transform: scale(1);
     }
     
-    #iconCarrinho:active::before{
+    .navTopRight .contentCarrinho:active::before{
         border: 1px solid #fff;
     }
 }
 
 
-.pesquisarButton {  
-    transition: .5s linear;
-    z-index: 1;
-    margin: auto;
-}
-
 /* daqui para baixo fica o código para questão da responsividade */
 
 @media only screen and (max-width: 710px) {
-    #about, .navTopRight .Pesquisar {
+    #about, .navTopRight p {
         display: none;
-    }
-
-    .pesquisarButtonResponsive, .Menu {
-        margin: 0 0.75rem;
     }
 
     .navTop {
         padding-right: 1.2rem;
     }
-
-    .navTopRight .pesquisarButtonResponsive {
-        display: inherit;
-        position: relative;
-        height: 1.3rem;
-        width: auto;
-        cursor: pointer;
-        background: transparent;
-        border: none;
-    }
-    
-    .navTopRight .pesquisarButtonResponsive img {
-        height: 100%;
-        width: 100%;
-        opacity: 0.6;
-    }
-
-    .navTopRight .Menu {
-        display: inherit;
-        position: relative;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        height: 1.5rem;
-        width: auto;
-    }
-
-    .navTopRight .Menu img {
-        width: 100%;
-        height: 100%;
-    }
-
     /* animações para navbar responsiva */
-    .navTopRight .pesquisarButtonResponsive img:hover,
-    .navTopRight #iconCarrinho img:hover
-    {
+    .navTopRight .iconCarrinho:hover {
         transform: translateY(-2px);
         transition: 0.25s ease-out;
     }
 
-    .navTopRight .pesquisarButtonResponsive img:active,
-    .navTopRight #iconCarrinho img:active
-    {
+    .navTopRight .iconCarrinho:active {
         transform: translateY(2px);
     }
 }
@@ -330,6 +246,18 @@ z-index: 1;
 @media only screen and (max-width: 319px) {
     .navTopLeft p{
         display: none;
+    }
+
+    .navBottomLeft {
+        margin-left: 0.5rem;
+    }
+
+    .navTop {
+        padding-left: 1.4rem;
+    }
+
+    .navBottom .navBottomLeft #home:after {
+        left: 0.7rem
     }
 }
 `
