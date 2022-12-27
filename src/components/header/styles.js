@@ -56,7 +56,7 @@ z-index: 1;
 }
 
 .navTopRight p {
-    margin-left: 0.6rem;
+    margin: 0 0.6rem;
 }
 
 #hiddenNav {
@@ -202,7 +202,7 @@ z-index: 1;
     .navTopRight .contentCarrinho::before {  
         content: '';
         position: absolute;
-        right: 7.3rem;
+        right: 7.9rem;
         width: 2rem;
         height: 1.7em;
         border: 1px solid black;

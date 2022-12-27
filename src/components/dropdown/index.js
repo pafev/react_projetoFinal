@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
-import downIcon from '../../assets/down white icon.png'
 import { Link } from "react-router-dom"
 import { Container } from "./styles"
+import { BsChevronDoubleDown } from 'react-icons/bs'
 
 const Dropdown = ({name, array}) => {
     let contentRef = useRef()
@@ -21,7 +21,7 @@ const Dropdown = ({name, array}) => {
         <div className="dropdown" ref={contentRef}>
             <button className="dropdownBtn" onClick={() => setOpenDropdown(!openDropdown)}>
                 <p>
-                    {name} <img src={downIcon} alt='seta'></img>
+                    {name} <BsChevronDoubleDown id="iconDown"/>
                 </p>
             </button>
             <div className="dropdown-content" id={openDropdown? 'contentShow' : ''}>
