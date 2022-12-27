@@ -1,6 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+.dropdownBtn {
+    background-color: black;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+}
+
 img {
     padding-bottom: 0.6rem;
     width: 1.1rem;
@@ -24,11 +32,6 @@ img {
     transform: translateY(-20px);
 }
 
-.dropdown-content h1 {
-    color: black;
-    font-size: 16px;
-    height: 2rem;
-}
 
 .dropdown-content::before {
     content: '';
@@ -41,11 +44,35 @@ img {
     transform: rotate(45deg);
 }
 
+.dropdown-content h1 {
+    color: black;
+    font-size: 16px;
+}
+
+.dropdown-content h2 {
+    color: black;
+    font-size: 14px;
+    font-weight: lighter;
+    font-style: italic;
+    margin-bottom: 0.7rem;
+}
+
 .dropdown-content .item {
+    display: flex;
+    align-items: center;
     border-top: 1px solid rgba(0,0,0,0.1);
     color: black;
     text-decoration: none;
     height: 1.6rem;
+    margin-bottom: 0.2rem;
+}
+
+.dropdown-content .icon {
+    margin-left: 5px;
+}
+
+.dropdown-content .item .logout {
+    font-size: 15px;
 }
 
 #contentShow {
@@ -57,14 +84,4 @@ img {
     transition: 0.5s ease;
 }
 
-.dropdownBtn {
-    background-color: black;
-    border: none;
-    outline: none;
-}
-
-.dropdownBtn p {
-    display: flex;
-    align-items: center;
-}
 `
