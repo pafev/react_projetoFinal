@@ -1,9 +1,9 @@
 import { Container } from "./styles"
-import Dropdown from "../../components/dropdown"
-import { useEffect, useMemo, useRef, useState } from "react"
+import { useEffect, useState } from "react"
 import { api } from "../../services/api"
+import Dropdown from "../../components/dropdown"
 import DropdownPrice from "../../components/dropdownPrice"
-import { BiSearchAlt } from 'react-icons/bi'
+import SearchInput from "../../components/searchInput"
 
 const Home = () => {   
     
@@ -19,17 +19,6 @@ const Home = () => {
         api.get('/products/index').then(response => setProducts(response.data))
     },[])
 
-    // para deixar a barra de pesquisa funcional
-    const [text, setText] = useState('')
-    const searchedProducts = useMemo(() => {
-        const lowerText = text.toLowerCase()
-        return products.filter((product) => product.name.toLowerCase().includes(lowerText))
-    }, [text, products])
-    
-    // para otimizar a busca na barra de pesquisa
-    const timeoutRef = useRef(null)
-    const delaySearch = 500 // (dada em ms)
-
     return (
         <Container>
         <link href="https://fonts.cdnfonts.com/css/jomolhari" rel="stylesheet"></link>
@@ -39,17 +28,7 @@ const Home = () => {
                 </h1></div>
             </div>
             <section className="exhibition">
-                <div className="searchContent">
-                    <input placeholder='Pesquise seu produto' 
-                     onChange={(event) => {
-                        window.clearTimeout(timeoutRef.current)
-                        timeoutRef.current = window.setTimeout(() => {
-                            setText(event.target.value)
-                        }, delaySearch)
-                     }} 
-                     />
-                    <BiSearchAlt className="iconSearch"/>
-                </div>
+                <SearchInput array={products}/>
                 <div className="products">
                     <div className="filters">
                         <Dropdown name={'Categoria'} array={categories}/>
@@ -57,7 +36,7 @@ const Home = () => {
                     </div>
                     <div className="productsContent">
                         <ul>
-                            {searchedProducts && searchedProducts.map((product) => (
+                            {products && products.map((product) => (
                                 <li key={product.id}>{product.name}</li>
                             ))}
                         </ul>
