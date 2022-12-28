@@ -8,7 +8,7 @@ const Dropdown = ({name, array, setObjectId}) => {
     const [openDropdown, setOpenDropdown] = useState(false)
     useEffect( () => {
         let handler = (event) => {
-            if(!contentRef.current.contains(event.target)){
+            if(contentRef.current && !contentRef.current.contains(event.target)){
                 setOpenDropdown(false)
             }
         }
