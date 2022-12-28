@@ -55,15 +55,18 @@ h1 {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-}
+    &:active {
+        color: rgba(255, 255, 255, .85);
+    }
 
-.clear:hover {
-    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-    transform: translate3d(0, 2px, 0);
-}
+    &:hover {
+        box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+        transform: translate3d(0, 2px, 0);
+    }
 
-.clear:focus {
-    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+    &:focus {
+        box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+    }
 }
 
 /* .clear {

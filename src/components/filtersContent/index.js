@@ -29,7 +29,7 @@ const FiltersContent = () => {
     const [filterPriceMax, setFilterPriceMax] = useState(Infinity)
     const finalFilteredProducts = useMemo(() => {
         return filteredProducts.filter((product) => (
-            product.price >= filterPriceMin & product.price <= filterPriceMax
+            product.price >= filterPriceMin && product.price <= filterPriceMax
         ))
     }, [filterPriceMin, filterPriceMax, filteredProducts])
 

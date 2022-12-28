@@ -37,7 +37,7 @@ const DropdownPrice = ({ setFilterPriceMin, setFilterPriceMax }) => {
 
             <div className="dropdown-content" id={openDropdown? 'contentShow' : ''}>
                 <div className="inputPrice">
-                    <input className="item" placeholder="preço min"
+                    <input className="item" placeholder="R$ min"
                     onChange={(event) => {
                         if(event.target.value) {
                             setPriceMinInput(parseFloat(event.target.value) * 100)
@@ -46,13 +46,7 @@ const DropdownPrice = ({ setFilterPriceMin, setFilterPriceMax }) => {
                         }
                     }}
                     ></input>
-                    <button onClick={() => setFilterPriceMin(priceMinInput)}>
-                        <GiConfirmed/>
-                    </button>
-                </div>
-
-                <div className="inputPrice">
-                    <input className="item" placeholder="preço max"
+                    <input className="item" placeholder="R$ max"
                     onChange={(event) => {
                         if(event.target.value) {
                             setPriceMaxInput(parseFloat(event.target.value) * 100)
@@ -60,9 +54,15 @@ const DropdownPrice = ({ setFilterPriceMin, setFilterPriceMax }) => {
                             setPriceMaxInput(Infinity)
                         }
                     }}
-                    ></input>
-                    <button onClick={() => setFilterPriceMax(priceMaxInput)}>
-                        <GiConfirmed/>
+                    ></input>                    
+                </div>
+
+                <div className="applyPrice">
+                    <button onClick={() => {
+                        setFilterPriceMax(priceMaxInput)
+                        setFilterPriceMin(priceMinInput)
+                    }}>
+                        <span>Aplicar <GiConfirmed id="iconConfirm"/></span>
                     </button>
                 </div>
                 
