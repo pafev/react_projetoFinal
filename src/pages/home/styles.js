@@ -37,6 +37,7 @@ export const Container = styled.section`
 }
 
 .exhibition {
+    min-height: 30rem;
     display: flex;
     flex-direction: column;
 }
