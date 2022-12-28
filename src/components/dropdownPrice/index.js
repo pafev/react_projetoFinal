@@ -40,7 +40,7 @@ const DropdownPrice = ({ setFilterPriceMin, setFilterPriceMax }) => {
                     <input className="item" placeholder="preço min"
                     onChange={(event) => {
                         if(event.target.value) {
-                            setPriceMinInput(event.target.value * 100)
+                            setPriceMinInput(parseFloat(event.target.value) * 100)
                         } else {
                             setPriceMinInput(0)
                         }
@@ -55,7 +55,7 @@ const DropdownPrice = ({ setFilterPriceMin, setFilterPriceMax }) => {
                     <input className="item" placeholder="preço max"
                     onChange={(event) => {
                         if(event.target.value) {
-                            setPriceMaxInput(event.target.value * 100)
+                            setPriceMaxInput(parseFloat(event.target.value) * 100)
                         } else {
                             setPriceMaxInput(Infinity)
                         }

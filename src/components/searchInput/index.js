@@ -1,6 +1,6 @@
 import { Container } from "./styles"
 import { BiSearchAlt } from 'react-icons/bi'
-import { useMemo, useRef, useState } from "react"
+import { useMemo, useRef, useState, useEffect } from "react"
 
 const SearchInput = ( {array} ) => {
     // para filtrar o array pelo text
@@ -14,11 +14,24 @@ const SearchInput = ( {array} ) => {
     const timeoutRef = useRef(null)
     const delaySearch = 500 // (dada em ms)
 
+    // para fechar a barra ao clicar fora dela
+    let contentRef = useRef()
+    const [openContent, setOpenContent] = useState(false)
+    useEffect( () => {
+        let handler = (event) => {
+            if(!contentRef.current.contains(event.target)){
+                setOpenContent(false)
+            }
+        }
+        document.addEventListener('mousedown', handler)
+    },[])
+
     return (
         <Container>
-            <div className="searchContent">
+            <div className="searchContent" ref={contentRef}>
                 <input placeholder='Pesquise seu produto' 
                     onChange={(event) => {
+                    setOpenContent(true)
                     window.clearTimeout(timeoutRef.current)
                     timeoutRef.current = window.setTimeout(() => {
                         setText(event.target.value)
@@ -28,7 +41,7 @@ const SearchInput = ( {array} ) => {
                 <BiSearchAlt className="iconSearch"/>
             </div>
             <div className="searchedProducts">
-                <ul className={text && searchedArray ? 'contentShow' : ''}>
+                <ul className={text && searchedArray && openContent ? 'contentShow' : ''}>
                     {text && searchedArray.length > 0 ? 
                     searchedArray.map((item) => (
                         <li key={item.id}>{item.name}</li>
