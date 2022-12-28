@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+
 #iconDown {
     font-size: 1.1rem;
     margin: 3px 0 0 5px;
 }
 
 .dropdownBtn {
+    position: relative;
     height: 100%;
     width: 100%;
     display: flex;
@@ -19,7 +21,9 @@ export const Container = styled.div`
     font-size: 20px;
 }
 
+
 .dropdown {
+    margin: 15px;
     height: 3.3rem;
     width: 10rem;
     position: relative;
@@ -47,13 +51,16 @@ export const Container = styled.div`
 }
 
 .dropdown-content .item {
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .dropdown-content .item:hover {color: rgba(255, 255, 255, 0.8)}
@@ -65,27 +72,4 @@ export const Container = styled.div`
     left: 0.3rem;
     margin: 0 auto;
 }
-
-@media only screen and (max-width: 894px) {
-
-    button {
-        padding: auto 0rem;
-        font-size: 14px;
-    }
-
-    .dropdown {
-        margin: 0rem;
-        width: 5.2rem;
-    }
-
-    button p {
-        display: flex;
-        align-items: center;
-        margin: 0 auto;
-        position: relative;
-        left: 0.25rem;
-    }
-}
-
-
 `

@@ -28,10 +28,12 @@ const SearchInput = ( {array} ) => {
                 <BiSearchAlt className="iconSearch"/>
             </div>
             <div className="searchedProducts">
-                <ul>
-                    {text && searchedArray && searchedArray.map((item) => (
+                <ul className={text && searchedArray ? 'contentShow' : ''}>
+                    {text && searchedArray.length > 0 ? 
+                    searchedArray.map((item) => (
                         <li key={item.id}>{item.name}</li>
-                    ))}
+                    )) : 
+                    <li>Produto não encontrado...</li>}
                 </ul>
             </div>
         </Container>
