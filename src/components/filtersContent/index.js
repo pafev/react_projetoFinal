@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react"
 import { api } from "../../services/api"
 import Dropdown from "../dropdown"
 import DropdownPrice from "../dropdownPrice"
+import { BsFilterRight } from 'react-icons/bs'
 
 const FiltersContent = () => {
     // para renderizar as opções de categorias no filtro
@@ -35,6 +36,7 @@ const FiltersContent = () => {
     return (
         <Container>
             <div className="filters">
+                <h1> <BsFilterRight id="iconFilter"/> Filtros </h1>
                 <Dropdown name={'Categoria'} array={categories} setObjectId={setCategoryId}/>
                 <DropdownPrice setFilterPriceMin={setFilterPriceMin} 
                     setFilterPriceMax={setFilterPriceMax}
@@ -44,7 +46,7 @@ const FiltersContent = () => {
                     setFilterPriceMin(0)
                     setFilterPriceMax(Infinity)
                 }}>
-                    Limpar filtros
+                    <span> Limpar filtros </span>
                 </button>
             </div>
             <div className="productsContent">

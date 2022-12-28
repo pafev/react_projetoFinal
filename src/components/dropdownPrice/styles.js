@@ -13,15 +13,16 @@ export const Container = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
+    /* background-color: black; */
     background-color: white;
     border: 1px solid black;
     /* border-radius: 5px; */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
     outline: none;
     font-size: 1rem;
     background-position: 0 90%;
-    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 18px 15px -18px;
     color: #41403e;
+    /* color: white; */
     cursor: pointer;
     font-family: Neucha, sans-serif;
     transition: all 235ms ease-in-out;
@@ -74,6 +75,7 @@ export const Container = styled.div`
     
     > input {
         width: 50%;
+        height: 1.8rem;
         padding: 0 0.2rem;
         border-radius: 3px;
         border: 1px solid rgba(0, 0, 0, .3);

@@ -13,14 +13,15 @@ export const Container = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
+    /* background-color: black; */
     background-color: white;
     border: 1px solid black;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
     outline: none;
     font-size: 1rem;
     background-position: 0 90%;
-    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 18px 15px -18px;
     color: #41403e;
+    /* color: white; */
     cursor: pointer;
     font-family: Neucha, sans-serif;
     transition: all 235ms ease-in-out;
@@ -109,7 +110,7 @@ export const Container = styled.div`
 
 .dropdownBtn:hover {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
+  transform: translateY(1px);
 }
 
 .dropdownBtn:focus {
