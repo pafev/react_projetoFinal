@@ -26,6 +26,7 @@ export const Container = styled.div`
     &:focus{
     border: 1px solid black;
     transition: border 0.35s ease;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.3);
     &::-webkit-input-placeholder{
       transition: opacity 0.45s ease; 
   	  opacity: 0;
@@ -65,6 +66,7 @@ export const Container = styled.div`
     background-color: white;
     border-radius: 8px;
     border: 1px solid black;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);

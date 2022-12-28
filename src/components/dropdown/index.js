@@ -20,7 +20,10 @@ const Dropdown = ({name, array, setObjectId}) => {
     return(
         <Container>
         <div className="dropdown" ref={contentRef}>
-            <button className="dropdownBtn" onClick={() => setOpenDropdown(!openDropdown)}>
+            <button className="dropdownBtn bouncy" 
+             onClick={() => setOpenDropdown(!openDropdown)}
+             id={openDropdown? 'buttonShow' : ''}
+            >
                 <p>
                     {name} <BsChevronDoubleDown id="iconDown"/>
                 </p>
