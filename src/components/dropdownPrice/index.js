@@ -6,11 +6,11 @@ import { GiConfirmed } from 'react-icons/gi'
 const DropdownPrice = ({ setFilterPriceMin, setFilterPriceMax }) => {
 
     // para deixar o dropdown funcional
-    let contentRef = useRef()
+    const contentRef = useRef()
     const [openDropdown, setOpenDropdown] = useState(false)
 
     useEffect( () => {
-        let handler = (event) => {
+        const handler = (event) => {
             if(contentRef.current && !contentRef.current.contains(event.target)){
                 setOpenDropdown(false)
             }

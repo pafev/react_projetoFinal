@@ -4,10 +4,10 @@ import { BsChevronDoubleDown } from 'react-icons/bs'
 
 const Dropdown = ({name, array, setObjectId}) => {
     // para deixar o dropdown funcional
-    let contentRef = useRef()
+    const contentRef = useRef()
     const [openDropdown, setOpenDropdown] = useState(false)
     useEffect( () => {
-        let handler = (event) => {
+        const handler = (event) => {
             if(contentRef.current && !contentRef.current.contains(event.target)){
                 setOpenDropdown(false)
             }

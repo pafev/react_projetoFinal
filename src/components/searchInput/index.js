@@ -15,10 +15,10 @@ const SearchInput = ( {array} ) => {
     const delaySearch = 500 // (dada em ms)
 
     // para fechar a barra ao clicar fora dela
-    let contentRef = useRef()
+    const contentRef = useRef()
     const [openContent, setOpenContent] = useState(false)
     useEffect( () => {
-        let handler = (event) => {
+        const handler = (event) => {
             if(contentRef.current && !contentRef.current.contains(event.target)){
                 setOpenContent(false)
             }
