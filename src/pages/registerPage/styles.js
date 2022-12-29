@@ -81,7 +81,7 @@ align-items: center;
             transform: translateY(2px);
         }
 
-        > .register {
+        > .alternative {
             font-weight: lighter;
             margin-top: 1.2rem;
             color: white;

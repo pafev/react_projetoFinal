@@ -32,7 +32,7 @@ const RegisterPage = () => {
                                        valueToCompare={password}/>         
                 </div>
                 <div className="buttons">
-                    <button className="enter" onClick={() => {
+                    <button onClick={() => {
                         if (validPassword) {
                             register(email, password, name)
                             navigate("/entrar")
@@ -42,7 +42,7 @@ const RegisterPage = () => {
                     }}>
                         Registrar
                     </button>
-                    <Link to="/entrar" className="register">Já sou cliente</Link>
+                    <Link to="/entrar" className="alternative">Já sou cliente</Link>
                 </div>
             </div>
         </Container>
