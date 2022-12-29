@@ -12,7 +12,7 @@ const DropdownPerfil = () => {
 
     useEffect( () => {
         let handler = (event) => {
-            if(!contentRef.current.contains(event.target)){
+            if(contentRef.current && !contentRef.current.contains(event.target)){
                 setOpenDropdown(false)
             }
         }

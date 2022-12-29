@@ -7,15 +7,17 @@ background-size: 100%;
 background-repeat: no-repeat;
 background-position-y: 30%;
 width: 100vw;
-height: 130vh;
+height: 150vh;
 display: flex;
 justify-content: center;
+align-items: center;
 
 .content {
+    position: relative;
     background-color: rgba(0, 0, 0, 0.3);
-    height: 24rem;
+    height: 33rem;
     width: 24rem;
-    margin: auto 0;
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     border-radius: 1rem;

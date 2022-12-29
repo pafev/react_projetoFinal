@@ -12,16 +12,27 @@ const UserProvider = ({children}) => {
             const response = await api.get('/users/login', {params: {email, password}})
             if (response.data) {
                 setUser(response.data)
-                alert('logado com sucesso')
+                alert('usuário logado com sucesso')
+            }
+        } catch (e) {
+            alert(e)
+        }   
+    }
+    
+    const register = async (email, password, name) => {
+        try {
+            const response = await api.post('/users/create', {user: {email, password, name}})
+            console.log(response.data)
+            if (response.data) {
+                alert('usuário registrado com sucesso')
             }
         } catch (e) {
             alert(e)
         }
-        
     }
 
     return (
-        <UserContext.Provider value={{user, login}}>
+        <UserContext.Provider value={{user, login, register}}>
             {children}
         </UserContext.Provider>
     )
