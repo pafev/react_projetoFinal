@@ -72,9 +72,10 @@ export const Container = styled.div`
     padding: 1rem 0;
     display: flex;
     justify-content: space-around;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
     
     > input {
-        width: 50%;
+        width: 40%;
         height: 1.8rem;
         padding: 0 0.2rem;
         border-radius: 3px;
@@ -97,26 +98,38 @@ export const Container = styled.div`
             }    
         }
     }
+}
+
+.dropdown-content .applyPrice {
+    height: 2.2rem;
+    display: flex;
+    justify-content: center;
 
     > button {
-        position: relative;
-        margin: 0.2rem 0.5rem 0 0;
-        background: transparent;
+        margin: auto 0;
+        height: 60%;
+        width: 45%;
         border: none;
         outline: none;
+        background: transparent;
         cursor: pointer;
+        display: flex;
 
-        &:hover {
-            transform: scale3d(1.1, 1.1, 1);
-        }
-        &:active {
-            transform: scale3d(1, 1, 1);
+        > span {
+            display: flex;
+            margin: auto auto;
+            align-items: center;
+            transition: all .25s ease;
+
+            > #iconConfirm {
+                margin-left: 0.2rem;
+            }
         }
     }
 }
 
-.dropdown-content .inputPrice + .inputPrice {
-    border-top: 1px solid rgba(0, 0, 0, .2);
+.applyPrice button:active span {
+    color: rgba(0, 0, 0, .6);
 }
 
 

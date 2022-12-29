@@ -19,7 +19,7 @@ const SearchInput = ( {array} ) => {
     const [openContent, setOpenContent] = useState(false)
     useEffect( () => {
         let handler = (event) => {
-            if(!contentRef.current.contains(event.target)){
+            if(contentRef.current && !contentRef.current.contains(event.target)){
                 setOpenContent(false)
             }
         }
@@ -31,12 +31,12 @@ const SearchInput = ( {array} ) => {
             <div className="searchContent" ref={contentRef}>
                 <input placeholder='Pesquise seu produto' 
                     onChange={(event) => {
-                    setOpenContent(true)
                     window.clearTimeout(timeoutRef.current)
                     timeoutRef.current = window.setTimeout(() => {
                         setText(event.target.value)
                     }, delaySearch)
-                    }} 
+                    }}
+                    onFocus={() => setOpenContent(true)} 
                 />
                 <BiSearchAlt className="iconSearch"/>
             </div>

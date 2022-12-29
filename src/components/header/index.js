@@ -4,6 +4,7 @@ import logo from '../../assets/e-commerce.png'
 import { RiShoppingCartLine } from 'react-icons/ri'
 import { Link } from "react-router-dom";
 import DropdownPerfil from '../dropdownPerfil';
+import { useUserContext } from "../../context/useUserContext"
 
 const Header = () => {
 
@@ -25,6 +26,11 @@ const Header = () => {
 
         window.addEventListener('scroll', posicaoScroll)
     },[])
+
+    // para quando o usuário estiver logado, a navbar alterar
+    const {user} = useUserContext()
+
+    console.log(user)
 
     return (
         <Container>
@@ -49,8 +55,12 @@ const Header = () => {
                 </div>
                 
                 <div className="navBottomRight">
-                    <Link to='/entrar' className="link" id='login'>Entrar</Link>
-                    <Link to='/registrar' className="link" id='register'>Registrar</Link>
+                    {user ? 
+                    <span className="userLogged">Bem vindo, {user.name}</span> :
+                    <>
+                        <Link to='/entrar' className="link" id='login'>Entrar</Link>
+                        <Link to='/registrar' className="link" id='register'>Registrar</Link>
+                    </>}
                     <DropdownPerfil />
                 </div>
             </nav>

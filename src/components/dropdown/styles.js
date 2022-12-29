@@ -79,6 +79,9 @@ export const Container = styled.div`
     display: block;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    &:active {
+        color: rgba(0, 0, 0, .6);
+    }
 }
 
 .dropdown-content .item:hover {transform: scale3d(1.05, 1.05, 1)}

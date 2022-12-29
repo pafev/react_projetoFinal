@@ -87,6 +87,11 @@ z-index: 1;
 .navBottomRight {
     display: flex;
     margin: 0.6rem 2.2rem 0 0rem;
+
+    > .userLogged {
+        color: white;
+        margin: 0 0.75rem;
+    }
 }
 
 .navBottom .link{
