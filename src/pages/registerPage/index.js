@@ -5,6 +5,7 @@ import { useState } from "react"
 import { useUserContext } from "../../context/useUserContext"
 import UserInput from "../../components/userInput"
 import UserInputValidate from "../../components/userInputValidate"
+import UserInputPassword from "../../components/userInputPassword"
 
 const RegisterPage = () => {
     const [email, setEmail] = useState('')
@@ -22,14 +23,13 @@ const RegisterPage = () => {
                 <FaUsers className="icon" />
                 <div className="inputData">
                     <UserInput title={"E-mail"} placeholder={"Seu e-mail"} 
-                               setData={setEmail} type={"text"} />
+                               setData={setEmail} />
                     <UserInput title={"Nome de usuário"} placeholder={"Seu nome de usuário"} 
-                               setData={setName} type={"text"} />
-                    <UserInput title={"Senha"} placeholder={"Sua senha"}
-                               setData={setPassword} type={"password"} />
+                               setData={setName} />
+                    <UserInputPassword title={"Senha"} placeholder={"Sua senha"}
+                                       setData={setPassword} />
                     <UserInputValidate title={"Repitir a senha"} placeholder={"Repita a senha"}
-                                       setData={setValidPassword} type={"password"} 
-                                       valueToCompare={password}/>         
+                                       setData={setValidPassword} valueToCompare={password}/>         
                 </div>
                 <div className="buttons">
                     <button onClick={() => {

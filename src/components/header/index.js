@@ -30,8 +30,6 @@ const Header = () => {
     // para quando o usuário estiver logado, a navbar alterar
     const {user} = useUserContext()
 
-    console.log(user)
-
     return (
         <Container>
             <nav className="navTop">
