@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom"
 import { FaUsers } from 'react-icons/fa'
 import { useState } from "react"
 import { useUserContext } from "../../context/useUserContext"
+import UserInput from "../../components/userInput"
+import UserInputValidate from "../../components/userInputValidate"
 
 const RegisterPage = () => {
     const [email, setEmail] = useState('')
@@ -19,35 +21,21 @@ const RegisterPage = () => {
             <div className="content">
                 <FaUsers className="icon" />
                 <div className="inputData">
-                    <div className="inputContent">
-                        <span>E-mail</span>
-                        <input className="inputEmail" placeholder="Seu e-mail"
-                         onChange={(event) => setEmail(event.target.value)}></input>
-                    </div>
-                    <div className="inputContent">
-                        <span>Nome de usuário</span>
-                        <input className="inputName" placeholder="Seu nome de usuário"
-                         onChange={(event) => setName(event.target.value)}></input>
-                    </div>
-                    <div className="inputContent">
-                        <span>Senha</span>
-                        <input className="inputSenha" placeholder="Crie uma senha" type="password"
-                         onChange={(event) => setPassword(event.target.value)}></input>
-                    </div>
-                    <div className="inputContent">
-                        <span> Repitir senha</span>
-                        <input className="inputSenha" placeholder="Repita a senha" type="password"
-                         onChange={(event) => password === event.target.value?
-                                              setValidPassword(true) : 
-                                              setValidPassword(false)}>
-                        </input>
-                    </div>          
+                    <UserInput title={"E-mail"} placeholder={"Seu e-mail"} 
+                               setData={setEmail} type={"text"} />
+                    <UserInput title={"Nome de usuário"} placeholder={"Seu nome de usuário"} 
+                               setData={setName} type={"text"} />
+                    <UserInput title={"Senha"} placeholder={"Sua senha"}
+                               setData={setPassword} type={"password"} />
+                    <UserInputValidate title={"Repitir a senha"} placeholder={"Repita a senha"}
+                                       setData={setValidPassword} type={"password"} 
+                                       valueToCompare={password}/>         
                 </div>
                 <div className="buttons">
                     <button className="enter" onClick={() => {
                         if (validPassword) {
                             register(email, password, name)
-                            navigate(-1)
+                            navigate("/entrar")
                         } else {
                             alert("Repita a senha novamente")
                         }

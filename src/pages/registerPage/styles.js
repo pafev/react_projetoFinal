@@ -13,9 +13,8 @@ justify-content: center;
 align-items: center;
 
 .content {
-    position: relative;
     background-color: rgba(0, 0, 0, 0.3);
-    height: 33rem;
+    height: 34rem;
     width: 24rem;
     margin-top: 4rem;
     display: flex;
@@ -35,54 +34,15 @@ align-items: center;
         flex-direction: column;
         align-items: center;
         position: relative;
-        top: -1.3rem;
-
-        > .inputContent {
-            display: flex;
-            flex-direction: column;
-            width: 75%;
-            font-family: Neucha, sans-serif;
-
-            > span {
-                color: white;
-                font-weight: 500;
-            }
-
-            > input {
-                font-size: 14px;
-                height: 2.2rem;
-                padding: 0 0.4rem;
-                color: #818489;
-                border: none;
-                border-radius: 2px;
-                outline: none;
-                &:focus{
-                    &::-webkit-input-placeholder{
-                        transition: opacity 0.25s ease; 
-                        opacity: 0;
-                    }
-                    &::-moz-placeholder {
-                        transition: opacity 0.25s ease; 
-                        opacity: 0;
-                    }
-                    &:-ms-placeholder {
-                        transition: opacity 0.25s ease; 
-                        opacity: 0;
-                    }    
-                }
-            }
-        }
-
-        > .inputContent + .inputContent {
-            margin-top: 1.2rem;
-        }
+        top: -2.5rem;
+        width: 100%;
     }
 
     > .buttons {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 2rem;
+        margin-top: 1.2rem;
         font-family: Neucha, sans-serif;
 
         > button {

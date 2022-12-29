@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { FaUsers } from 'react-icons/fa'
 import { useState } from "react"
 import { useUserContext } from "../../context/useUserContext"
+import UserInput from "../../components/userInput"
 
 const LoginPage = () => {
     const [email, setEmail] = useState('')
@@ -17,16 +18,10 @@ const LoginPage = () => {
             <div className="content">
                 <FaUsers className="icon" />
                 <div className="inputData">
-                    <div className="inputContent">
-                        <span>E-mail</span>
-                        <input className="inputEmail" placeholder="Seu e-mail"
-                         onChange={(event) => setEmail(event.target.value)}></input>
-                    </div>
-                    <div className="inputContent">
-                        <span>Senha</span>
-                        <input className="inputSenha" placeholder="Sua senha" type="password"
-                         onChange={(event) => setPassword(event.target.value)}></input>
-                    </div>      
+                    <UserInput title={"E-mail"} placeholder={"Seu e-mail"} 
+                               setData={setEmail} type={"text"} />
+                    <UserInput title={"Senha"} placeholder={"Sua senha"}
+                               setData={setPassword} type={"password"} />     
                 </div>
                 <div className="buttons">
                     <button className="enter" onClick={() => {
