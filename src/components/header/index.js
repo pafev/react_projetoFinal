@@ -30,8 +30,6 @@ const Header = () => {
     // para quando o usuário estiver logado, a navbar alterar
     const {user} = useUserContext()
 
-    console.log(user)
-
     return (
         <Container>
             <nav className="navTop">
@@ -40,7 +38,7 @@ const Header = () => {
                     <p>Ecommerce</p>
                 </Link>
 
-                <Link to='/carrinho' className='navTopRight'>
+                <Link to='/entrar' className='navTopRight'>
                     <div className='contentCarrinho'>
                         <RiShoppingCartLine className='iconCarrinho'/>
                     </div>
