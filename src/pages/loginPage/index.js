@@ -1,5 +1,5 @@
 import { Container } from "./styles"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { FaUsers } from 'react-icons/fa'
 import { useState } from "react"
 import { useUserContext } from "../../context/useUserContext"
@@ -12,6 +12,9 @@ const LoginPage = () => {
 
     const {login} = useUserContext()
 
+    const navigate = useNavigate()
+
+
     return (
         <Container>
             <div className="content">
@@ -23,7 +26,7 @@ const LoginPage = () => {
                                setData={setPassword} />     
                 </div>
                 <div className="buttons">
-                    <button className="enter" onClick={() => login(email, password)}>
+                    <button className="enter" onClick={() => login(email, password) && navigate('/')}>
                         Entrar
                     </button>
                     <Link to="/registrar" className="register">Ainda não sou cliente</Link>
