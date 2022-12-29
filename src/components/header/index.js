@@ -38,7 +38,7 @@ const Header = () => {
                     <p>Ecommerce</p>
                 </Link>
 
-                <Link to='/entrar' className='navTopRight'>
+                <Link to='/carrinho' className='navTopRight'>
                     <div className='contentCarrinho'>
                         <RiShoppingCartLine className='iconCarrinho'/>
                     </div>
