@@ -1,6 +1,6 @@
 import { Container } from "./styles"
 
-const UserInput = ({title, placeholder, setData, type}) => {
+const UserInput = ({title, placeholder, setData}) => {
 
 
     return (
@@ -8,8 +8,7 @@ const UserInput = ({title, placeholder, setData, type}) => {
             <div className="inputContent">
                 <span>{title}</span>
                 <input placeholder={placeholder}
-                    onChange={(event) => setData(event.target.value)}
-                    type={type}>
+                    onChange={(event) => setData(event.target.value)}>
                 </input>
             </div>
         </Container>

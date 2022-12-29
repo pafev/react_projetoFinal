@@ -4,6 +4,7 @@ import { FaUsers } from 'react-icons/fa'
 import { useState } from "react"
 import { useUserContext } from "../../context/useUserContext"
 import UserInput from "../../components/userInput"
+import UserInputPassword from "../../components/userInputPassword"
 
 const LoginPage = () => {
     const [email, setEmail] = useState('')
@@ -19,9 +20,9 @@ const LoginPage = () => {
                 <FaUsers className="icon" />
                 <div className="inputData">
                     <UserInput title={"E-mail"} placeholder={"Seu e-mail"} 
-                               setData={setEmail} type={"text"} />
-                    <UserInput title={"Senha"} placeholder={"Sua senha"}
-                               setData={setPassword} type={"password"} />     
+                               setData={setEmail} />
+                    <UserInputPassword title={"Senha"} placeholder={"Sua senha"}
+                               setData={setPassword} />     
                 </div>
                 <div className="buttons">
                     <button className="enter" onClick={() => {

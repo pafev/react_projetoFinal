@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Container } from "./styles"
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai'
 
-const UserInputValidate = ({title, placeholder, setData, valueToCompare}) => {
+const UserInputPassword = ({title, placeholder, setData}) => {
 
     const [showPassword, setShowPassword] = useState(false)
 
@@ -12,9 +12,7 @@ const UserInputValidate = ({title, placeholder, setData, valueToCompare}) => {
                 <span>{title}</span>
                 <div className="input">
                     <input placeholder={placeholder}
-                        onChange={(event) => valueToCompare === event.target.value?
-                            setData(true) : 
-                            setData(false)}
+                        onChange={(event) => setData(event.target.value)}
                         type={showPassword? "text" : "password"}>
                     </input>
                     {showPassword? 
@@ -26,4 +24,4 @@ const UserInputValidate = ({title, placeholder, setData, valueToCompare}) => {
     )   
 }
 
-export default UserInputValidate
+export default UserInputPassword
