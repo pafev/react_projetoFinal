@@ -31,8 +31,12 @@ const UserProvider = ({children}) => {
         }
     }
 
+    const logout = () => {
+        setUser(undefined)
+    }
+
     return (
-        <UserContext.Provider value={{user, login, register}}>
+        <UserContext.Provider value={{user, login, register, logout}}>
             {children}
         </UserContext.Provider>
     )

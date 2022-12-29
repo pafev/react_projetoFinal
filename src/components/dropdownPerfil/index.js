@@ -19,7 +19,7 @@ const DropdownPerfil = () => {
         document.addEventListener('mousedown', handler)
     },[])
 
-    const {user} = useUserContext()
+    const {user, logout} = useUserContext()
 
     return(
         <Container>
@@ -43,7 +43,7 @@ const DropdownPerfil = () => {
                     <Link className="item" to='/'>
                         Admin
                     </Link>
-                    <Link className="item" to='/'>
+                    <Link className="item" to='#' onClick={() => logout()}>
                         Logout
                         <FiLogOut className="icon logout"/>
                     </Link>
