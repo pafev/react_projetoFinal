@@ -4,6 +4,7 @@ import { api } from "../../services/api"
 import Dropdown from "../dropdown"
 import DropdownPrice from "../dropdownPrice"
 import { BsFilterRight } from 'react-icons/bs'
+import ProductCard from "../productCard"
 
 const FiltersContent = () => {
     // para renderizar as opções de categorias no filtro
@@ -52,7 +53,7 @@ const FiltersContent = () => {
             <div className="productsContent">
                 <ul>
                     {finalFilteredProducts && finalFilteredProducts.map((product) => (
-                        <li key={product.id}>{product.name}</li>
+                        <ProductCard key={product.id} product={product}/>
                     ))}
                 </ul>
             </div>
