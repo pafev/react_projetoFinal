@@ -1,9 +1,14 @@
+import { Container } from "./styles"
+import { useUserContext } from '../../context/useUserContext'
 
 const PerfilPage = () => {
+
+    const {user} = useUserContext()
+
     return (
-        <p>
-            Você está no seu perfil
-        </p>
+        <Container>
+            <p>Bem vindo {user.name}</p>
+        </Container>
     )
 }
 

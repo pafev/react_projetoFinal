@@ -7,11 +7,11 @@ import { FiLogOut } from 'react-icons/fi'
 import { useUserContext } from "../../context/useUserContext"
 
 const DropdownPerfil = () => {
-    let contentRef = useRef()
+    const contentRef = useRef()
     const [openDropdown, setOpenDropdown] = useState(false)
 
     useEffect( () => {
-        let handler = (event) => {
+        const handler = (event) => {
             if(contentRef.current && !contentRef.current.contains(event.target)){
                 setOpenDropdown(false)
             }
@@ -40,9 +40,7 @@ const DropdownPerfil = () => {
                         Editar perfil
                         <BiEdit className="icon"/>
                     </Link>
-                    <Link className="item" to='/'>
-                        Admin
-                    </Link>
+                    {user.is_admin && <Link className="item" to='/admin'>Admin</Link>}
                     <Link className="item" to='#' onClick={() => logout()}>
                         Logout
                         <FiLogOut className="icon logout"/>

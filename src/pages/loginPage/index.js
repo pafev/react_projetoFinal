@@ -1,7 +1,7 @@
 import { Container } from "./styles"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { FaUsers } from 'react-icons/fa'
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useUserContext } from "../../context/useUserContext"
 import UserInput from "../../components/userInput"
 import UserInputPassword from "../../components/userInputPassword"
@@ -10,7 +10,23 @@ const LoginPage = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const {login} = useUserContext()
+    const {login, user} = useUserContext()
+
+    const navigate = useNavigate()
+
+    const buttonRef = useRef()
+
+    // para o botão Entrar funcionar com a tecla Enter do teclado
+    useEffect(() => {
+        const handler = (event) => {
+            if(event.key === "Enter") {
+                console.log('apertou o enter')
+                buttonRef.current.click()
+            }
+        }
+        document.addEventListener('keypress', handler)
+    }, [])
+
 
     return (
         <Container>
@@ -23,7 +39,8 @@ const LoginPage = () => {
                                setData={setPassword} />     
                 </div>
                 <div className="buttons">
-                    <button className="enter" onClick={() => login(email, password)}>
+                    <button className="enter" onClick={() => login(email, password) && 
+                        user && navigate('/')} ref={buttonRef}>
                         Entrar
                     </button>
                     <Link to="/registrar" className="register">Ainda não sou cliente</Link>

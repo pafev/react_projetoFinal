@@ -1,7 +1,7 @@
 import { Container } from "./styles"
 import { Link, useNavigate } from "react-router-dom"
 import { FaUsers } from 'react-icons/fa'
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { useUserContext } from "../../context/useUserContext"
 import UserInput from "../../components/userInput"
 import UserInputValidate from "../../components/userInputValidate"
@@ -16,6 +16,19 @@ const RegisterPage = () => {
     const {register} = useUserContext()
 
     const navigate = useNavigate()
+
+    const buttonRef = useRef()
+
+    // para o botão Entrar funcionar com a tecla Enter do teclado
+    useEffect(() => {
+        const handler = (event) => {
+            if(event.key === "Enter") {
+                console.log('apertou o enter')
+                buttonRef.current.click()
+            }
+        }
+        document.addEventListener('keypress', handler)
+    }, [])
 
     return (
         <Container>
@@ -39,7 +52,7 @@ const RegisterPage = () => {
                         } else {
                             alert("Repita a senha novamente")
                         }
-                    }}>
+                    }} ref={buttonRef}>
                         Registrar
                     </button>
                     <Link to="/entrar" className="alternative">Já sou cliente</Link>

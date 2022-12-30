@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import { useUserContext } from "../context/useUserContext"
 import AboutUs from "../pages/aboutUs"
+import AdminPage from "../pages/adminPage"
 import CartPage from "../pages/cartPage"
 import Home from "../pages/home"
 import LoginPage from "../pages/loginPage"
@@ -19,6 +20,7 @@ const MyRoutes = () => {
             <Route path='/entrar' element={user? <Home/> : <LoginPage/>}/>
             <Route path='/registrar' element={user? <Home/> : <RegisterPage/>}/>
             <Route path='/sobre' element={<AboutUs/>}/>
+            <Route path='/admin' element={<AdminPage/>}/>
         </Routes>
     )
 }

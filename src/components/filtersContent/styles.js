@@ -44,7 +44,7 @@ h1 {
     font-size: 12px;
     font-family: Neucha, sans-serif;
     border: 1px solid black;
-    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 20px 19px -18px;
     outline: none;
     color: white;
     background-color: black;
