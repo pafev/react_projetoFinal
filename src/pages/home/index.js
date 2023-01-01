@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react"
 import { api } from "../../services/api"
 import DropdownPrice from "../../components/dropdownPrice"
 import { BiSearchAlt } from 'react-icons/bi'
+import productCard from "../../components/productCard"
 
 const Home = () => {   
     
@@ -61,7 +62,9 @@ const Home = () => {
                                 <li key={product.id}>{product.name}</li>
                             ))}
                         </ul>
+                        <productCard/>
                     </div>
+
                 </div>
             </section>
         </Container>
