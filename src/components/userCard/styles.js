@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import avatar from '../../assets/perfil avatar.jpg'
 
 export const Container = styled.section`
 background-color: white;
@@ -21,14 +20,17 @@ div {
     height: 16rem;
     border-bottom: 1px solid #AAA;
     box-shadow: rgba(0, 0, 0, .3) 0px 6px 6px -5px;
-    background-image: url(${avatar});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+
+    > img {
+        height: 100%;
+        width: 100%;
+    }
     
     > button {
-        cursor: pointer;
+        z-index: 2;
+        position: absolute;
         margin: 13.5rem 0 0 0.8rem;
+        cursor: pointer;
         background-color: black;
         color: white;
         display: flex;

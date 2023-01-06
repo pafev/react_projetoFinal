@@ -1,6 +1,8 @@
 import { useUserContext } from "../../context/useUserContext"
 import { Container } from "./styles"
 import { AiOutlineCamera } from 'react-icons/ai'
+import avatar from '../../assets/perfil avatar.jpg'
+import { photo } from '../../services/photo'
 
 const UserCard = () => {
 
@@ -9,6 +11,8 @@ const UserCard = () => {
     return (
         <Container>
             <div className="imageCard">
+                <img src={user.profile_picture_url ? photo.defaults.baseURL + user.profile_picture_url :
+                avatar} alt='imagem do usuário'/>
                 <button>
                     Alterar foto <AiOutlineCamera />
                 </button>
