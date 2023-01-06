@@ -26,7 +26,7 @@ img {
     padding: 0.5rem 1rem;
     width: 10rem;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 2;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-20px);
