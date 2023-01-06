@@ -37,7 +37,7 @@ const FiltersContent = () => {
     return (
         <Container>
             <div className="filters">
-                <h1> <BsFilterRight id="iconFilter"/> Filtros </h1>
+                <h1 className="title"> <BsFilterRight id="iconFilter"/> Filtros </h1>
                 <Dropdown name={'Categoria'} array={categories} setObjectId={setCategoryId}/>
                 <DropdownPrice setFilterPriceMin={setFilterPriceMin} 
                     setFilterPriceMax={setFilterPriceMax}

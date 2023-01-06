@@ -14,7 +14,7 @@ display: flex;
     padding-top: 3rem;
 }
 
-h1 {
+.title {
     display: flex;
     align-items: center;
     /* background-color: blue; */
@@ -32,11 +32,15 @@ h1 {
 }
 
 .productsContent {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 3rem auto;
-    font-size: 20px;
+    width: 85%;
+    margin: 2.5rem 2rem 4rem 2rem;
+    
+    > ul {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 3.5rem;
+    }
 }
 
 .clear {
