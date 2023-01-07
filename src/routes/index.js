@@ -7,6 +7,7 @@ import Home from "../pages/home"
 import LoginPage from "../pages/loginPage"
 import PerfilPage from "../pages/perfilPage"
 import RegisterPage from "../pages/registerPage"
+import ProductPage from "../pages/productPage"
 
 const MyRoutes = () => {
 
@@ -21,6 +22,7 @@ const MyRoutes = () => {
             <Route path='/registrar' element={user? <Home/> : <RegisterPage/>}/>
             <Route path='/sobre' element={<AboutUs/>}/>
             <Route path='/admin' element={<AdminPage/>}/>
+            <Route path='/products/:id' element={<ProductPage/>}/>
         </Routes>
     )
 }

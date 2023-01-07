@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-<<<<<<< HEAD
-export const Container = styled.card`
-.prodImg {
-    display: flex;
-    flex-wrap: wrap;
-    align-items : center;
-}
-`
-=======
 export const Container = styled.div`
 
 .productContent {
@@ -49,4 +40,4 @@ export const Container = styled.div`
 }
 
 `
->>>>>>> 86152e69050af8bf1fce604c9db911174c0fed23
+

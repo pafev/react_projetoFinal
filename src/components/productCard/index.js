@@ -1,22 +1,4 @@
 import { Container } from "./styles"
-<<<<<<< HEAD
-const productCard = () => {
-    return (
-        <div className = "card">
-            <Container>
-            <div className="cardpic">
-                <p>O produto fica aqui</p>
-
-            </div>
-            </Container>
-        </div>
-        
-    )
-
-}
-
-export default productCard
-=======
 import { photo } from "../../services/photo"
 import noImage_url from '../../assets/no-image_url.jpg'
 import { Link } from "react-router-dom"
@@ -36,4 +18,3 @@ const ProductCard = ({product}) => {
 }
 
 export default ProductCard
->>>>>>> 86152e69050af8bf1fce604c9db911174c0fed23
