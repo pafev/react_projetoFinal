@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { api } from "../../services/api"
+import { Container } from "./styles"
 
 const ProductPage =()=> {
     const [product, setProduct] = useState([])
@@ -9,20 +10,24 @@ const ProductPage =()=> {
     }, [])
     
     return(
-        <>
-        <title>      
-        
-            <p> 
-                Pagina do produto aqui 
-            </p>  
-        </title>
-        <div>
-            <li>
-                Teste de texto
 
-            </li>
-        </div>
-        </>
+        <Container>
+            <title>              
+                <p> 
+                    Pagina do produto aqui 
+                </p>  
+            </title>
+
+            <div>
+            <div className="nomeProoduto">
+                    <div>
+                        <h1>
+                            Categoria - Nome do Produto
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </Container>
     )
 
 }

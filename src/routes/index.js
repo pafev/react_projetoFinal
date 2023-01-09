@@ -22,7 +22,7 @@ const MyRoutes = () => {
             <Route path='/registrar' element={user? <Home/> : <RegisterPage/>}/>
             <Route path='/sobre' element={<AboutUs/>}/>
             <Route path='/admin' element={<AdminPage/>}/>
-            <Route path='/products/:id' element={<ProductPage/>}/>
+            <Route path='/product/:id' element={<ProductPage/>}/>
         </Routes>
     )
 }
