@@ -48,14 +48,14 @@ div {
         touch-action: manipulation;
     }
 
-    > button:hover {
+    /* > button:hover {
         box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
         transform: translateY(1px);
     }
 
     > button:focus {
         box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-    }
+    } */
 }
 
 
