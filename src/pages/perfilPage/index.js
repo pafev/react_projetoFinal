@@ -10,7 +10,7 @@ const PerfilPage = () => {
 
     return (
         <Container>
-            {/* <section className="imageBackground"></section> */}
+            <section className="imageBackground"></section>
             <UserCard/>
             <section className="content">
                 <div className="header">

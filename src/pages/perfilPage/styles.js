@@ -6,7 +6,7 @@ display: flex;
 min-height: 30rem;
 padding-top: 4rem;
 
-/* .imageBackground {
+.imageBackground {
     z-index: -1;
     position: absolute;
     width: 100vw;
@@ -16,10 +16,10 @@ padding-top: 4rem;
     background-size: cover;
     background-position: center;
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -6px;
-} */
+}
 
 .content {
-    /* margin: 14rem 2rem 2rem 2rem; */
+    /* margin: 11rem 2rem 2rem 2rem; */
     margin: 8rem 2rem 2rem 2rem;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -28,7 +28,8 @@ padding-top: 4rem;
     width: 66%;
     > .header {
         height: 8rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
+        box-shadow: rgba(0, 0, 0, .3) 0px 2px 4px -2px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -37,6 +38,7 @@ padding-top: 4rem;
             font-family: Neucha, sans-serif;
             font-size: 1.5rem;
             margin: 2.1rem 0 0 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, .2);
         }
 
         > .choices {
