@@ -3,6 +3,7 @@ import { useUserContext } from "../../context/useUserContext"
 import { Container } from "./styles"
 import { BiEdit } from 'react-icons/bi'
 import { api } from "../../services/api"
+import { FcMoneyTransfer } from 'react-icons/fc'
 
 const EditUserSession = () => {
 
@@ -55,7 +56,7 @@ const EditUserSession = () => {
             <button onClick={() => {
                 addCredits(prompt("Digite a quantidade de créditos que deseja adicionar"))
             }}>
-                Adicionar créditos
+                <FcMoneyTransfer className="icon"/> Adicionar créditos
             </button>
         </Container>
     )

@@ -45,6 +45,11 @@ button {
     text-decoration: none;
     transform: translateZ(0) scale(1);
     transition: transform .2s;
+    display: flex;
+    align-items: center;
+    > .icon {
+        margin-right: .3rem;
+    }
 }
 
 button:hover {
