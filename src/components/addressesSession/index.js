@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { useUserContext } from "../../context/useUserContext"
 import { Container } from "./styles"
 import {AiOutlinePlus} from 'react-icons/ai'
@@ -8,6 +8,10 @@ const AddressesSession = () => {
 
     const {user} = useUserContext()
     const [addresses, setAddresses] = useState(user.addresses)
+
+    const getAddresses = useCallback(() => {
+        api.get('/addresses/index').then(response => setAddresses(response.data))
+    },[])
 
     const addAddress = async (newAddressDescription) => {
         try {
@@ -47,9 +51,9 @@ const AddressesSession = () => {
         }
     }
 
-    const getAddresses = useCallback(() => {
-        api.get('/addresses/index').then(response => setAddresses(response.data))
-    },[])
+    useEffect(() => {
+        getAddresses()
+    }, [getAddresses])
 
     return (
         <Container>
