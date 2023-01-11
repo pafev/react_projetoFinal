@@ -53,13 +53,14 @@ const AddressesSession = () => {
 
     return (
         <Container>
-            <button onClick={() => addAddress(prompt('Digite o endereço que deseja adicionar: '))}>
-                <AiOutlinePlus/> Adicionar novo endereço
+            <button className="addAddressBtn"
+            onClick={() => addAddress(prompt('Digite o endereço que deseja adicionar: '))}>
+                    <AiOutlinePlus/> Adicionar novo endereço
             </button>
             <ul>
                 {addresses && addresses.map((address) => (
                     <li key={address.id}>
-                        <div className="address">
+                        <div className="header">
                             <h1>{user.name}</h1>
                             <p>{address.description}</p>
                         </div>
