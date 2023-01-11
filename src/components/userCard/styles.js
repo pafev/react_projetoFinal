@@ -26,8 +26,13 @@ div {
         width: 100%;
     }
     
-    > button {
+    > input[type='file'] {
+        display: none;
+    }
+
+    > label {
         z-index: 2;
+        font-size: .8rem;
         position: absolute;
         margin: 13.5rem 0 0 0.8rem;
         cursor: pointer;
