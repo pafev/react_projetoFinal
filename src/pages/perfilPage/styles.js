@@ -28,7 +28,8 @@ padding-top: 4rem;
     width: 66%;
     > .header {
         height: 8rem;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        /* border-bottom: 1px solid rgba(0, 0, 0, 0.2); */
+        box-shadow: rgba(0, 0, 0, .3) 0px 2px 4px -2px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -37,6 +38,7 @@ padding-top: 4rem;
             font-family: Neucha, sans-serif;
             font-size: 1.5rem;
             margin: 2.1rem 0 0 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, .2);
         }
 
         > .choices {
