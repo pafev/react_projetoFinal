@@ -1,6 +1,6 @@
 import { Container } from "./styles"
 import { useState, useRef, useEffect } from "react"
-// import { api } from "../../services/api"
+import { api } from "../../services/api"
 
 const AdminProductCard = ({item, products, setProducts, getProducts}) => {
 
@@ -14,53 +14,35 @@ const AdminProductCard = ({item, products, setProducts, getProducts}) => {
             }
         }
         document.addEventListener('mousedown', handler)
-        document.removeEventListener('mousedown', handler)
+        // document.removeEventListener('mousedown', handler)
     },[])
 
 
     // funções do CRUD para os produtos
 
-    // const addProducts = async (nameNew, priceNew, brandNew, categoryNew, stockQuantityNew) => {
-    //     try{
-    //         const response = await api.post('/products/create', {product: 
-    //             {name: nameNew,
-    //              price: priceNew,
-    //              brand_id: brandNew,
-    //              category_id: categoryNew,
-    //              stock_quantity: stockQuantityNew}
-    //         })
-    //         if(response.data){
-    //             setProducts([...products, response.data])
-    //             alert('Produto criado com sucesso')
-    //         }
-    //     } catch(e){
-    //         alert(e)
-    //     }
-    // }
+    const removeProduct = async (idProduct) => {
+        try{
+            const response = await api.delete(`/products/delete/${idProduct}`)
+            if(response.data){
+                getProducts()
+                alert('Produto removido com sucesso')
+            }
+        } catch(e){
+            alert(e)
+        }
+    }
 
-    // const removeBrand = async (idProduct) => {
-    //     try{
-    //         const response = await api.delete(`/products/delete/${idProduct}`)
-    //         if(response.data){
-    //             getProducts()
-    //             alert('Produto removido com sucesso')
-    //         }
-    //     } catch(e){
-    //         alert(e)
-    //     }
-    // }
-
-    // const updateBrand = async (idProduct, object) => {
-    //     try{
-    //         const response = await api.patch(`/products/update/${idProduct}`, {brand: object})
-    //         if(response.data){
-    //             getProducts()
-    //             alert('Produto alterado com sucesso')
-    //         }
-    //     }catch(e){
-    //         alert(e)
-    //     }
-    // }
+    const updateProduct = async (idProduct, object) => {
+        try{
+            const response = await api.patch(`/products/update/${idProduct}`, {product: object})
+            if(response.data){
+                getProducts()
+                alert('Produto alterado com sucesso')
+            }
+        }catch(e){
+            alert(e)
+        }
+    }
 
 
     return (
@@ -73,16 +55,32 @@ const AdminProductCard = ({item, products, setProducts, getProducts}) => {
                     <div className="editDropdown" ref={contentRef}>
                         <button onClick={() => setShowDropdown(!showDropdown)}>Editar produto</button>
                         <ul id={showDropdown? 'editShow' : ''}>
-                            <li>Editar preço</li>
-                            <li>Editar nome</li>
-                            <li>Editar descrição</li>
-                            <li>Editar quantidade de estoque</li>
-                            <li>Editar marca</li>
-                            <li>Editar categoria</li>
-                            <li>Adicionar foto</li>
+                            <li onClick={() => {
+                                const newPrice = parseInt(parseFloat(prompt('Digite o novo preço:'))*100)
+                                console.log(newPrice)
+                                updateProduct(item.id, {price: newPrice})
+                            }}>Editar preço</li>
+                            <li onClick={() => {
+                                updateProduct(item.id, {name: prompt('Digite o novo preço')})
+                            }}>Editar nome</li>
+                            <li onClick={() => {
+                                updateProduct(item.id, {description: prompt('Digite a nova descrição')})
+                            }}>Editar descrição</li>
+                            <li onClick={() => {
+                                updateProduct(item.id, {stock_quantity: parseInt(prompt('Digite a nova quantidade em estoque'))})
+                            }}>Editar quantidade de estoque</li>
+                            <li onClick={() => {
+                                updateProduct(item.id, {brand_id: parseInt(prompt('Digite o id da nova marca'))})
+                            }}>Editar marca</li>
+                            <li onClick={() => {
+                                updateProduct(item.id, {category_id: parseInt(prompt('Digite o id da nova categoria'))})
+                            }}>Editar categoria</li>
+                            {/* <li>Adicionar foto</li> */}
                         </ul>
                     </div>
-                    <button>Excluir</button>
+                    <button onClick={() => {
+                        removeProduct(item.id)
+                    }}>Excluir</button>
                 </div>
             </li>
         </Container>
