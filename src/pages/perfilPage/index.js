@@ -3,6 +3,7 @@ import UserCard from "../../components/userCard"
 import { useState } from "react"
 import EditUserSession from "../../components/editUserSession"
 import AddressesSession from "../../components/addressesSession"
+import backgroundPerfil from '../../assets/back-perfil1.jpg'
 
 const PerfilPage = () => {
 
@@ -10,7 +11,8 @@ const PerfilPage = () => {
 
     return (
         <Container>
-            <section className="imageBackground"></section>
+            <section style={{backgroundImage: `url(${backgroundPerfil})`}}
+                 className="imageBackground"/>
             <UserCard/>
             <section className="content">
                 <div className="header">
