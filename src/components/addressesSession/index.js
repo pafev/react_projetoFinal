@@ -7,7 +7,7 @@ import { api } from "../../services/api"
 const AddressesSession = () => {
 
     const {user} = useUserContext()
-    const [addresses, setAddresses] = useState(user.addresses)
+    const [addresses, setAddresses] = useState([])
 
     const getAddresses = useCallback(() => {
         api.get('/addresses/index').then(response => setAddresses(response.data))

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import backgroundPerfil from '../../assets/back-perfil1.jpg'
 
 export const Container = styled.section`
 display: flex;
@@ -11,7 +10,6 @@ padding-top: 4rem;
     position: absolute;
     width: 100vw;
     height: 16rem;
-    background-image: url(${backgroundPerfil});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
