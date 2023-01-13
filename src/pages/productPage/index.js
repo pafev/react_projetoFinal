@@ -6,6 +6,7 @@ import { photo } from "../../services/photo"
 import noImage_url from '../../assets/no-image_url.jpg'
 import {MdKeyboardArrowRight} from "react-icons/md"
 import {BsBagCheck} from "react-icons/bs"
+import {BsCartPlus} from "react-icons/bs"
 import ProductCard from "../../components/productCard"
 // import { useUserContext } from "../../context/useUserContext"
 
@@ -38,7 +39,7 @@ const ProductPage = () => {
 
             <div className="nomemarca">
                 
-                {product.brand} <MdKeyboardArrowRight/> {product.name} 
+                {product.brand} <MdKeyboardArrowRight className="rightArrow"/> {product.name} 
             </div>
 
             <div className="productInfo">
@@ -67,10 +68,8 @@ const ProductPage = () => {
                     <h1>{product.name}</h1>
                     <h4>{product.brand}</h4>
                     <div className="productDesc">
-                        <h4>
                             <p>Sobre esse item:</p>
                             {product.description}
-                        </h4>
                     </div>
 
                 </div>
@@ -112,12 +111,16 @@ const ProductPage = () => {
                             <BsBagCheck/> Comprar Agora
 
                         </button>
+                        <button id = 'cart'onClick = {purchase}>
+                        <BsCartPlus/> Adicionar ao Carrinho
+
+                        </button>
                         
                     </div>
                 </div>
             </div>
             <hr/>                        
-            <div className brandProducts>
+            <div className ="brandProducts">
                 <h1>
                     Outros produtos de {product.brand}:
                 </h1>
