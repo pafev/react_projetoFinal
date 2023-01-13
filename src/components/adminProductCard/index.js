@@ -18,6 +18,18 @@ const AdminProductCard = ({item, products, setProducts, getProducts}) => {
         // document.removeEventListener('mousedown', handler)
     },[])
 
+    // declarações e funções pro dropdown do Editar fotos
+    const [showDropdownFt, setShowDropdownFt] = useState(false)
+    const contentRefFt = useRef()
+    useEffect(() => {
+        const handler = (event) => {
+            if(contentRefFt.current && !contentRefFt.current.contains(event.target)){
+                setShowDropdownFt(false)
+            }
+        }
+        document.addEventListener('mousedown', handler)
+        // document.removeEventListener('mousedown', handler)
+    },[])
 
     // funções do CRUD para os produtos
 
@@ -45,6 +57,34 @@ const AdminProductCard = ({item, products, setProducts, getProducts}) => {
         }
     }
 
+    // Funções para edição das imagens dos produtos
+
+    const addImages = async (files, idProduct) => {
+        const formData = new FormData()
+        formData.append('images[]', files[0])
+        console.log(files[0])
+        try {
+            const response = await api.post(`/products/add-image/${idProduct}`, formData)
+            if (response.data){
+                console.log(response.data)
+                alert('Foto adicionada com sucesso')
+            }
+        } catch(e) {
+            alert(e)
+        }
+    }
+
+    const clearImages = async (idProduct) => {
+        try {
+            const response = await api.delete(`/products/clear-images/${idProduct}`)
+            if (response.data){
+                alert('Fotos limpadas com sucesso')
+            }
+        } catch(e) {
+            alert(e)
+        }
+    }
+
 
     return (
         <Container>
@@ -57,6 +97,24 @@ const AdminProductCard = ({item, products, setProducts, getProducts}) => {
                 </span>
             </div>
             <div className="crud">
+                <div className="dropdown" ref={contentRefFt}>
+                    <button onClick={() => setShowDropdownFt(!showDropdownFt)}>
+                        Fotos <BsChevronDoubleDown className="icon"
+                                id={showDropdownFt? "iconDown" : ''}/>
+                    </button>
+                    <ul id={showDropdownFt? 'editShow' : ''}>
+                        <li>
+                            <label htmlFor={`selecao-arquivo1${item.id}`}>
+                                Adicionar foto
+                            </label>
+                            <input type='file' id={`selecao-arquivo1${item.id}`}
+                             onChange={(event) => addImages(event.target.files, item.id)}/>
+                        </li>
+                        <li onClick={() => clearImages(item.id)}>
+                            Remover fotos
+                        </li>
+                    </ul>
+                </div>
                 <div className="dropdown" ref={contentRef}>
                     <button onClick={() => setShowDropdown(!showDropdown)}>
                         Editar produto <BsChevronDoubleDown className="icon"

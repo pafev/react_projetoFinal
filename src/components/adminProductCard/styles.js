@@ -41,6 +41,8 @@ border-bottom: 1px solid rgba(0, 0, 0, 0.2);
             padding: 0 0.5rem;
             display: flex;
             align-items: center;
+            border-right: 1px solid rgba(0, 0, 0, 0.2);
+
 
             > .icon {
                 margin-left: 0.1rem;
@@ -81,6 +83,14 @@ border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                 &:active {
                     color: rgba(0, 0, 0, .6);
                 }
+
+                > label {
+                    cursor: pointer;
+                }
+
+                > input {
+                    display: none;
+                }
             }
 
             > li:hover {
@@ -100,7 +110,6 @@ border-bottom: 1px solid rgba(0, 0, 0, 0.2);
         cursor: pointer;
         font-weight: bold;
         border: none;
-        border-left: 1px solid rgba(0, 0, 0, 0.2);
         outline: none;
         background: transparent;
     }
