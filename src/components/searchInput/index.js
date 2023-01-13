@@ -24,6 +24,8 @@ const SearchInput = ( {array} ) => {
             }
         }
         document.addEventListener('mousedown', handler)
+
+        return () => document.removeEventListener('mousedown', handler)
     },[])
 
     return (

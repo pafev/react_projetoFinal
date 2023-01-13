@@ -16,6 +16,8 @@ const DropdownPrice = ({ setFilterPriceMin, setFilterPriceMax }) => {
             }
         }
         document.addEventListener('mousedown', handler)
+
+        return () => document.removeEventListener('mousedown', handler)
     },[])
 
     // para o botão de setar preço min e preço max
