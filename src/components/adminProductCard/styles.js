@@ -9,8 +9,20 @@ justify-content: space-between;
 align-items: center;
 border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
-h1 {
+.header {
     margin-left: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    
+    > span {
+        font-size: 0.9rem;
+        font-weight: lighter;
+        color: rgba(0, 0, 0, 0.5);
+        width: 17rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }
 
 .crud{

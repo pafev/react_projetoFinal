@@ -48,43 +48,48 @@ const AdminProductCard = ({item, products, setProducts, getProducts}) => {
 
     return (
         <Container>
+            <div className="header">
                 <h1>
                     {item.name}
                 </h1>
-                <div className="crud">
-                    <div className="dropdown" ref={contentRef}>
-                        <button onClick={() => setShowDropdown(!showDropdown)}>
-                            Editar produto <BsChevronDoubleDown className="icon"
-                                            id={showDropdown? "iconDown" : ''}/>
-                        </button>
-                        <ul id={showDropdown? 'editShow' : ''}>
-                            <li onClick={() => {
-                                const newPrice = parseInt(parseFloat(prompt('Digite o novo preço:'))*100)
-                                console.log(newPrice)
-                                updateProduct(item.id, {price: newPrice})
-                            }}>Editar preço</li>
-                            <li onClick={() => {
-                                updateProduct(item.id, {name: prompt('Digite o novo preço')})
-                            }}>Editar nome</li>
-                            <li onClick={() => {
-                                updateProduct(item.id, {description: prompt('Digite a nova descrição')})
-                            }}>Editar descrição</li>
-                            <li onClick={() => {
-                                updateProduct(item.id, {stock_quantity: parseInt(prompt('Digite a nova quantidade em estoque'))})
-                            }}>Editar estoque</li>
-                            <li onClick={() => {
-                                updateProduct(item.id, {brand_id: parseInt(prompt('Digite o id da nova marca'))})
-                            }}>Editar marca</li>
-                            <li onClick={() => {
-                                updateProduct(item.id, {category_id: parseInt(prompt('Digite o id da nova categoria'))})
-                            }}>Editar categoria</li>
-                            {/* <li>Adicionar foto</li> */}
-                        </ul>
-                    </div>
-                    <button onClick={() => {
-                        removeProduct(item.id)
-                    }}>Excluir</button>
+                <span>
+                    {item.description}
+                </span>
+            </div>
+            <div className="crud">
+                <div className="dropdown" ref={contentRef}>
+                    <button onClick={() => setShowDropdown(!showDropdown)}>
+                        Editar produto <BsChevronDoubleDown className="icon"
+                                        id={showDropdown? "iconDown" : ''}/>
+                    </button>
+                    <ul id={showDropdown? 'editShow' : ''}>
+                        <li onClick={() => {
+                            const newPrice = parseInt(parseFloat(prompt('Digite o novo preço:'))*100)
+                            console.log(newPrice)
+                            updateProduct(item.id, {price: newPrice})
+                        }}>Editar preço</li>
+                        <li onClick={() => {
+                            updateProduct(item.id, {name: prompt('Digite o novo preço')})
+                        }}>Editar nome</li>
+                        <li onClick={() => {
+                            updateProduct(item.id, {description: prompt('Digite a nova descrição')})
+                        }}>Editar descrição</li>
+                        <li onClick={() => {
+                            updateProduct(item.id, {stock_quantity: parseInt(prompt('Digite a nova quantidade em estoque'))})
+                        }}>Editar estoque</li>
+                        <li onClick={() => {
+                            updateProduct(item.id, {brand_id: parseInt(prompt('Digite o id da nova marca'))})
+                        }}>Editar marca</li>
+                        <li onClick={() => {
+                            updateProduct(item.id, {category_id: parseInt(prompt('Digite o id da nova categoria'))})
+                        }}>Editar categoria</li>
+                        {/* <li>Adicionar foto</li> */}
+                    </ul>
                 </div>
+                <button onClick={() => {
+                    removeProduct(item.id)
+                }}>Excluir</button>
+            </div>
         </Container>
     )
 }
