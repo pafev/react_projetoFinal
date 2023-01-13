@@ -1,7 +1,7 @@
 import { Container } from "./styles"
 import { Link, useNavigate } from "react-router-dom"
 import { FaUsers } from 'react-icons/fa'
-import { useEffect, useRef, useState } from "react"
+import { useRef, useEffect, useState } from "react"
 import { useUserContext } from "../../context/useUserContext"
 import UserInput from "../../components/userInput"
 import UserInputPassword from "../../components/userInputPassword"
@@ -16,7 +16,7 @@ const LoginPage = () => {
 
     const buttonRef = useRef()
 
-    // para o botão Entrar funcionar com a tecla Enter do teclado
+    //para o botão Entrar funcionar com a tecla Enter do teclado
     useEffect(() => {
         const handler = (event) => {
             if(event.key === "Enter") {
@@ -30,7 +30,8 @@ const LoginPage = () => {
 
     return (
         <Container>
-            <div className="content">
+            <form className="content" onSubmit={() => login(email, password) && 
+                        user && navigate('/')}>
                 <FaUsers className="icon" />
                 <div className="inputData">
                     <UserInput title={"E-mail"} placeholder={"Seu e-mail"} 
@@ -39,13 +40,12 @@ const LoginPage = () => {
                                setData={setPassword} />     
                 </div>
                 <div className="buttons">
-                    <button className="enter" onClick={() => login(email, password) && 
-                        user && navigate('/')} ref={buttonRef}>
+                    <button className="enter" type="submit" ref={buttonRef}>
                         Entrar
                     </button>
                     <Link to="/registrar" className="register">Ainda não sou cliente</Link>
                 </div>
-            </div>
+            </form>
         </Container>
     )
 }
