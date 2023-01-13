@@ -1,6 +1,7 @@
 import { Container } from "./styles"
 import { useState, useRef, useEffect } from "react"
 import { api } from "../../services/api"
+import { BsChevronDoubleDown } from 'react-icons/bs'
 
 const AdminProductCard = ({item, products, setProducts, getProducts}) => {
 
@@ -47,13 +48,15 @@ const AdminProductCard = ({item, products, setProducts, getProducts}) => {
 
     return (
         <Container>
-            <li key={item.id} className='productCard'>
                 <h1>
                     {item.name}
                 </h1>
                 <div className="crud">
-                    <div className="editDropdown" ref={contentRef}>
-                        <button onClick={() => setShowDropdown(!showDropdown)}>Editar produto</button>
+                    <div className="dropdown" ref={contentRef}>
+                        <button onClick={() => setShowDropdown(!showDropdown)}>
+                            Editar produto <BsChevronDoubleDown className="icon"
+                                            id={showDropdown? "iconDown" : ''}/>
+                        </button>
                         <ul id={showDropdown? 'editShow' : ''}>
                             <li onClick={() => {
                                 const newPrice = parseInt(parseFloat(prompt('Digite o novo preço:'))*100)
@@ -68,7 +71,7 @@ const AdminProductCard = ({item, products, setProducts, getProducts}) => {
                             }}>Editar descrição</li>
                             <li onClick={() => {
                                 updateProduct(item.id, {stock_quantity: parseInt(prompt('Digite a nova quantidade em estoque'))})
-                            }}>Editar quantidade de estoque</li>
+                            }}>Editar estoque</li>
                             <li onClick={() => {
                                 updateProduct(item.id, {brand_id: parseInt(prompt('Digite o id da nova marca'))})
                             }}>Editar marca</li>
@@ -82,7 +85,6 @@ const AdminProductCard = ({item, products, setProducts, getProducts}) => {
                         removeProduct(item.id)
                     }}>Excluir</button>
                 </div>
-            </li>
         </Container>
     )
 }

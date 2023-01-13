@@ -2,6 +2,7 @@ import { Container } from "./styles"
 import { BiSearchAlt } from 'react-icons/bi'
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { api } from "../../services/api"
+import {AiOutlinePlus} from 'react-icons/ai'
 
 const EditCategoriesSession = () => {
     const [categories, setCategories] = useState([])
@@ -78,10 +79,11 @@ const EditCategoriesSession = () => {
                 <BiSearchAlt className="iconSearch"/>
             </div>
             <div className="searchedCategories">
-                <button className="addCategoryBtn"
+                <button className="addItem"
                  onClick={() => {
                     addCategory(prompt('Digite o nome da categoria que deseja adicionar'))
                  }}>
+                    <AiOutlinePlus className="iconAdd"/>
                     Adicionar categoria
                 </button>
                 <ul>
@@ -89,14 +91,16 @@ const EditCategoriesSession = () => {
                     searchedArray.map((item) => (
                         <li key={item.id}>
                             <h1>{item.name}</h1>
-                            <button onClick={() => {
-                                updateCategory(item.id, prompt('Digite o novo nome para essa categoria'))
-                            }}>Editar nome</button>
-                            <button onClick={() => {
-                                removeCategory(item.id)
-                            }}>
-                                Excluir
-                            </button>
+                            <div className="buttonsCard">
+                                <button onClick={() => {
+                                    updateCategory(item.id, prompt('Digite o novo nome para essa categoria'))
+                                }}>Editar nome</button>
+                                <button onClick={() => {
+                                    removeCategory(item.id)
+                                }}>
+                                    Excluir
+                                </button>
+                            </div>
                         </li>
                     )) : 
                     <li>Categoria não encontrada...</li>}

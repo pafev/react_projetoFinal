@@ -3,6 +3,7 @@ import { BiSearchAlt } from 'react-icons/bi'
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import AdminProductCard from "../adminProductCard"
 import { api } from "../../services/api"
+import {AiOutlinePlus} from 'react-icons/ai'
 
 const EditProductsSession = () => {
     const [products, setProducts] = useState([])
@@ -60,7 +61,7 @@ const EditProductsSession = () => {
                 <BiSearchAlt className="iconSearch"/>
             </div>
             <div className="searchedProducts">
-                <button onClick={() => {
+                <button className="addItem" onClick={() => {
                     addProducts(
                         prompt('Digite o nome do novo produto:'),
                         parseInt(parseFloat(prompt('Digite o preço do novo produto:'))*100),
@@ -68,12 +69,12 @@ const EditProductsSession = () => {
                         parseInt(prompt('Digite o id da categoria do novo produto:')),
                         parseInt(prompt('Digite a quantidade em estoque do novo produto:'))
                     )
-                }}>Adicionar Produto</button>
+                }}> <AiOutlinePlus className="iconAdd"/> Adicionar Produto</button>
                 <ul>
                     {searchedArray.length > 0 ? 
                     searchedArray.map((item) => (
-                        <AdminProductCard key={item.id} item={item} products={products} setProducts={setProducts}
-                         getProducts={getProducts}/>
+                        <AdminProductCard key={item.id} item={item} products={products} 
+                        setProducts={setProducts} getProducts={getProducts} id="productCard"/>
                     )) : 
                     <></>}
                 </ul>

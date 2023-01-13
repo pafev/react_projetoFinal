@@ -96,7 +96,7 @@ ul{
 
 /* edicao da scrollbar na ul*/
 ul::-webkit-scrollbar {
-    width: 12px;               /* width of the entire scrollbar */
+    width: 8px;               /* width of the entire scrollbar */
 }
 
 ul::-webkit-scrollbar-track {
