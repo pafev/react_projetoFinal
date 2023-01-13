@@ -26,8 +26,13 @@ div {
         width: 100%;
     }
     
-    > button {
+    > input[type='file'] {
+        display: none;
+    }
+
+    > label {
         z-index: 2;
+        font-size: .8rem;
         position: absolute;
         margin: 13.5rem 0 0 0.8rem;
         cursor: pointer;
@@ -48,14 +53,14 @@ div {
         touch-action: manipulation;
     }
 
-    > button:hover {
+    /* > button:hover {
         box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
         transform: translateY(1px);
     }
 
     > button:focus {
         box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-    }
+    } */
 }
 
 

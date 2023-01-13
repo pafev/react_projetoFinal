@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.section`
 margin-top: 7rem;
 
-
 .nomemarca {
     margin-left: 1rem;
     margin-bottom: 2rem;
@@ -109,5 +108,4 @@ margin-top: 7rem;
     flex-direction: row;
     justify-content: space-evenly;
 }
-
 `

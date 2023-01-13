@@ -6,6 +6,7 @@ import CartPage from "../pages/cartPage"
 import Home from "../pages/home"
 import LoginPage from "../pages/loginPage"
 import PerfilPage from "../pages/perfilPage"
+import ProductPage from "../pages/productPage"
 import RegisterPage from "../pages/registerPage"
 import ProductPage from "../pages/productPage"
 

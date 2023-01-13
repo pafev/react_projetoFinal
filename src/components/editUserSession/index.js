@@ -3,6 +3,7 @@ import { useUserContext } from "../../context/useUserContext"
 import { Container } from "./styles"
 import { BiEdit } from 'react-icons/bi'
 import { api } from "../../services/api"
+import { FcMoneyTransfer } from 'react-icons/fc'
 
 const EditUserSession = () => {
 
@@ -38,19 +39,24 @@ const EditUserSession = () => {
     return (
         <Container>
             <div>
-                {name}
-                <BiEdit onClick={() => changeName(prompt("Digite o novo nome de usuário"))}/>
+                <p>
+                    {name}
+                    <BiEdit className="icon" onClick={() => changeName(prompt("Digite o novo nome de usuário"))}/>
+                </p>
+                <span>Username</span>
             </div>
             <div>
-                {user.email}
+                <p>{user.email}</p>
+                <span>Email</span>
             </div>
             <div>
-                {(parseFloat(credit) / 100 ).toFixed(2)}
+                <p>R$ {(parseFloat(credit) / 100 ).toFixed(2)}</p>
+                <span>Créditos</span>
             </div>
             <button onClick={() => {
                 addCredits(prompt("Digite a quantidade de créditos que deseja adicionar"))
             }}>
-                Adicionar créditos
+                <FcMoneyTransfer className="icon"/> Adicionar créditos
             </button>
         </Container>
     )

@@ -7,10 +7,7 @@ import noImage_url from '../../assets/no-image_url.jpg'
 import {MdKeyboardArrowRight} from "react-icons/md"
 import {BsBagCheck} from "react-icons/bs"
 import ProductCard from "../../components/productCard"
-
-
 // import { useUserContext } from "../../context/useUserContext"
-
 
 const ProductPage = () => {
 
@@ -28,6 +25,8 @@ const ProductPage = () => {
 
     const purchase = () => {console.log("batata")}
 
+    const [product, setProduct] = useState({})
+
     useEffect(() => {
         api.get(`/products/show/${id}`).then(response => setProduct(response.data))
     },[id])
@@ -37,6 +36,7 @@ const ProductPage = () => {
     },[product.brand_id])
 
     console.log(product.brand_id)
+  
     return (
         <Container>
 
@@ -136,11 +136,6 @@ const ProductPage = () => {
                     }
                 </div>
             </div>
-
-
-
-        </Container>
-    )
 }
 
 export default ProductPage
