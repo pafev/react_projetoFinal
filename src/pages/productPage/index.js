@@ -77,7 +77,6 @@ const ProductPage = () => {
             <div className="nomemarca">               
                 {product.brand} <MdKeyboardArrowRight className="rightArrow"/> {product.name} 
             </div>
-
             <div className="productInfo">
                 <div className="productPhoto">
                     <div className="photosCascade">  
@@ -92,62 +91,68 @@ const ProductPage = () => {
                             )) :
                             <></>} 
                     </div>
-                    <div className="photoMain"
-                     style={{backgroundImage: `url(${product.images_url ? photo.defaults.baseURL + product.images_url[foto] : noImage_url})`}}/>             
                 </div>
-                <div className="textoProduto">
-                    <h1>{product.name}</h1>
-                    <h2>{product.brand}</h2>
-                    <p className="productDesc">
-                            {product.description}          
-                    </p>
-                </div>
-            
+                
+                <div className="contentRight">
+                    <div className="photoMain">
+                        <img src={product.images_url ? photo.defaults.baseURL + product.images_url[foto] : noImage_url} 
+                        alt="imagem do produto"></img>             
+                    </div>
+                    <div className="textoProduto">
+                        <h1>{product.name}</h1>
+                        <h2>{product.brand}</h2>
+                        <p className="productDesc">
+                                {product.description}          
+                        </p>
+                    </div>
 
-                <div className="purchase">
-                    <div className="price">
-                        <h4>
-                            R$
-                        </h4>
-                        <h1>{(parseFloat(product.price) / 100).toFixed(2)}</h1>
-                    </div>
-                    <div className="stock">
-                        {product.stock_quantity < 1 ? <p>Não está disponível!</p> 
-                        : <p>Estoque: {product.stock_quantity} disponíveis </p>}
-                    </div>
-                    {/* <hr/>  */}
-                    <p>Quantidade</p>  
-                    <div className="buyQuantity">          
-                        <button id="-" onClick ={()=> {
-                            buyQuantity > 1 &&
-                            setBuyQuantity(buyQuantity - 1)
-                        }}>
-                            -
-                        </button>                            
-                        <div className="numQuantity">
-                            {buyQuantity}
+                    <div className="purchase">
+                        <div className="price">
+                            <h4>
+                                R$
+                            </h4>
+                            <h1>{(parseFloat(product.price) / 100).toFixed(2)}</h1>
                         </div>
-                        <button id="+" onClick ={()=> {
-                            buyQuantity < product.stock_quantity &&
-                            setBuyQuantity(buyQuantity + 1)
-                        }}>
-                            + 
-                        </button>
-                    </div>
-                    <div className="buyButton">
-                        <button id = 'buy' onClick = {() => {
-                            user? purchase() : navigate('/entrar')
-                        }}>
-                            <BsBagCheck/> Comprar Agora
-                        </button>
-                        <button id = 'cart' onClick = {() => {
-                            user? addToCart() : navigate('/entrar')
-                        }}>
-                        <BsCartPlus/> Adicionar ao Carrinho
-                        </button>               
+                        <div className="stock">
+                            {product.stock_quantity < 1 ? <p>Não está disponível!</p> 
+                            : <p>{product.stock_quantity} disponíveis </p>}
+                        </div>
+                        {/* <hr/>  */}
+                        <p>Quantidade</p>  
+                        <div className="buyQuantity">          
+                            <button id="-" onClick ={()=> {
+                                buyQuantity > 1 &&
+                                setBuyQuantity(buyQuantity - 1)
+                            }}>
+                                -
+                            </button>                            
+                            <div className="numQuantity">
+                                {buyQuantity}
+                            </div>
+                            <button id="+" onClick ={()=> {
+                                buyQuantity < product.stock_quantity &&
+                                setBuyQuantity(buyQuantity + 1)
+                            }}>
+                                + 
+                            </button>
+                        </div>
+                        <div className="buyButton">
+                            <button id = 'buy' onClick = {() => {
+                                user? purchase() : navigate('/entrar')
+                            }}>
+                                <BsBagCheck/> Comprar Agora
+                            </button>
+                            <button id = 'cart' onClick = {() => {
+                                user? addToCart() : navigate('/entrar')
+                            }}>
+                            <BsCartPlus/> Adicionar ao Carrinho
+                            </button>               
+                        </div>
                     </div>
                 </div>
+
             </div>                       
+
             <div className ="brandProducts">
                 <h1>
                     Outros produtos de {product.brand}
