@@ -70,7 +70,7 @@ const CartPage = () => {
                                 />
                             </th>
                             <th>{(parseFloat(item.value)/100).toFixed(2)}</th>
-                            <th><input type="number"/></th>
+                            <th>{item.quantity}</th>
                             <th>{(parseFloat(item.value)/100).toFixed(2)}</th>
                         </tr>
                         ))}

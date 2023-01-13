@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { api } from "../../services/api"
 import { Container } from "./styles"
 import { photo } from "../../services/photo"
@@ -8,13 +8,15 @@ import {MdKeyboardArrowRight} from "react-icons/md"
 import {BsBagCheck} from "react-icons/bs"
 import {BsCartPlus} from "react-icons/bs"
 import ProductCard from "../../components/productCard"
-// import { useUserContext } from "../../context/useUserContext"
+import { useUserContext } from "../../context/useUserContext"
 
 const ProductPage = () => {
 
-    const {id} = useParams()
+    const {user} = useUserContext()
 
-    // const {user} = useUserContext()
+    const navigate = useNavigate()
+
+    const {id} = useParams()
 
     const [brandProducts, setBrandProducts] = useState(undefined)
 
@@ -22,7 +24,43 @@ const ProductPage = () => {
     
     const [buyQuantity, setBuyQuantity] = useState(1)
 
-    const purchase = () => {console.log("batata")}
+    const purchase = async () => {
+        try {
+            const response = await api.patch(`/products/update-stock/${id}`, 
+                                {product:{stock_quantity: (product.stock_quantity - buyQuantity)}})
+            var confirmPurchase = window.confirm('Você têm certeza que deseja realizar esta compra?')
+            if (response.data && (product.price * buyQuantity) <= user.credit_wallet &&
+                confirmPurchase === true ) {
+                
+                try {
+                    const response = await api.patch(`/users/update`, 
+                    {user: {credit_wallet: (user.credit_wallet - (product.price * buyQuantity))}})
+                    if (response.data) {
+                        alert('Compra efetuada!')
+                    }
+                } catch(e) {
+                    alert(e)
+                }
+
+            } else {
+                alert('Não foi possível efetuar a compra :(')
+            }
+        } catch(e) {
+            alert(e)
+        }
+    }
+
+    const addToCart = async () => {
+        try {
+            const response = await api.post('/purchases/create', 
+            {purchase: {product_id: product.id, quantity: buyQuantity}})
+            if (response.data) {
+                alert('Item adicionado ao carrinho')
+            }
+        } catch(e) {
+            alert(e)
+        }
+    }
 
     const [product, setProduct] = useState({})
 
@@ -36,42 +74,33 @@ const ProductPage = () => {
   
     return (
         <Container>
-
-            <div className="nomemarca">
-                
+            <div className="nomemarca">               
                 {product.brand} <MdKeyboardArrowRight className="rightArrow"/> {product.name} 
             </div>
 
             <div className="productInfo">
-
                 <div className="productPhoto">
-
                     <div className="photosCascade">  
                     {product.images_url ?
                             product.images_url.slice(0,5).map((item, index) => (
-                                <div onClick={()=> setFoto(index)}>   
+                                <div key={item} onClick={()=> {
+                                    setFoto(index)
+                                    }}>   
                                     <img src = {product.images_url ? photo.defaults.baseURL + product.images_url[index] : noImage_url } 
                                     alt = 'imagem do produto'/> 
                                 </div>
                             )) :
                             <></>} 
                     </div>
-
-                    <div className="photoMain">
-                        
-                        <img src={product.images_url ? photo.defaults.baseURL + product.images_url[foto] : noImage_url }
-                        alt='imagem do produto'/>
-                    </div>
+                    <div className="photoMain"
+                     style={{backgroundImage: `url(${product.images_url ? photo.defaults.baseURL + product.images_url[foto] : noImage_url})`}}/>             
                 </div>
-
                 <div className="textoProduto">
                     <h1>{product.name}</h1>
-                    <h4>{product.brand}</h4>
-                    <div className="productDesc">
-                            <p>Sobre esse item:</p>
-                            {product.description}
-                    </div>
-
+                    <h2>{product.brand}</h2>
+                    <p className="productDesc">
+                            {product.description}          
+                    </p>
                 </div>
             
 
@@ -81,48 +110,47 @@ const ProductPage = () => {
                             R$
                         </h4>
                         <h1>{(parseFloat(product.price) / 100).toFixed(2)}</h1>
-
                     </div>
                     <div className="stock">
-                        {product.stock_quantity< 1 ? <p>Não está disponível!</p> 
-                        : <><p>Em estoque: {product.stock_quantity} Disponíveis </p> 
-                        {/* <p>{product.stock} Disponíveis</p> */}
-                        </>}
+                        {product.stock_quantity < 1 ? <p>Não está disponível!</p> 
+                        : <p>Estoque: {product.stock_quantity} disponíveis </p>}
                     </div>
-                    <hr/> 
+                    {/* <hr/>  */}
                     <p>Quantidade</p>  
-                    <div className="buyQuantity">
-                                
-                            <button id="-" onClick ={()=> setBuyQuantity(buyQuantity - 1) }>
-                                -
-                            </button>
-                            
-                            <div className="numQuantity">
-                                {buyQuantity}
-                            </div>
-
-                            <button id="+" onClick ={()=> setBuyQuantity(buyQuantity + 1) }>
-                                + 
-                            </button>
-                        
+                    <div className="buyQuantity">          
+                        <button id="-" onClick ={()=> {
+                            buyQuantity > 1 &&
+                            setBuyQuantity(buyQuantity - 1)
+                        }}>
+                            -
+                        </button>                            
+                        <div className="numQuantity">
+                            {buyQuantity}
+                        </div>
+                        <button id="+" onClick ={()=> {
+                            buyQuantity < product.stock_quantity &&
+                            setBuyQuantity(buyQuantity + 1)
+                        }}>
+                            + 
+                        </button>
                     </div>
                     <div className="buyButton">
-                        <button id = 'buy'onClick = {purchase}>
+                        <button id = 'buy' onClick = {() => {
+                            user? purchase() : navigate('/entrar')
+                        }}>
                             <BsBagCheck/> Comprar Agora
-
                         </button>
-                        <button id = 'cart'onClick = {purchase}>
+                        <button id = 'cart' onClick = {() => {
+                            user? addToCart() : navigate('/entrar')
+                        }}>
                         <BsCartPlus/> Adicionar ao Carrinho
-
-                        </button>
-                        
+                        </button>               
                     </div>
                 </div>
-            </div>
-            <hr/>                        
+            </div>                       
             <div className ="brandProducts">
                 <h1>
-                    Outros produtos de {product.brand}:
+                    Outros produtos de {product.brand}
                 </h1>
                 
                 <div className=" productCards">
