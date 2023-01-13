@@ -2,6 +2,7 @@ import { Container } from "./styles"
 import { BiSearchAlt } from 'react-icons/bi'
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { api } from "../../services/api"
+import {AiOutlinePlus} from 'react-icons/ai'
 
 const EditBrandsSession = () => {
     const [brands, setBrands] = useState([])
@@ -77,10 +78,11 @@ const EditBrandsSession = () => {
                 <BiSearchAlt className="iconSearch"/>
             </div>
             <div className="searchedBrands">
-                <button className="addBrandBtn"
+                <button className="addItem"
                  onClick={() => {
                     addBrand(prompt('Digite o nome da marca que deseja adicionar'))
                  }}>
+                    <AiOutlinePlus className="iconAdd"/>
                     Adicionar marca
                 </button>
                 <ul>
@@ -88,16 +90,18 @@ const EditBrandsSession = () => {
                     searchedArray.map((item) => (
                         <li key={item.id}>
                             <h1>{item.name}</h1>
-                            <button onClick={() => {
-                                updateBrand(item.id, prompt('Digite o novo nome para essa marca'))
-                            }}>
-                                Editar nome
-                            </button>
-                            <button onClick={() => {
-                                removeBrand(item.id)
-                            }}>
-                                Excluir
-                            </button>
+                            <div className="buttonsCard">
+                                <button onClick={() => {
+                                    updateBrand(item.id, prompt('Digite o novo nome para essa marca'))
+                                }}>
+                                    Editar nome
+                                </button>
+                                <button onClick={() => {
+                                    removeBrand(item.id)
+                                }}>
+                                    Excluir
+                                </button>
+                            </div>
                         </li>
                     )) : 
                     <li>Marca não encontrada...</li>}

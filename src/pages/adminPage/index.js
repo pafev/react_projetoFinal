@@ -4,6 +4,9 @@ import EditCategoriesSession from "../../components/editCategoriesSession"
 import EditProductsSession from "../../components/editProductsSession"
 import { Container } from "./styles"
 import { api } from "../../services/api"
+import { MdProductionQuantityLimits } from 'react-icons/md'
+import { TbBrandPagekit } from 'react-icons/tb'
+import { BiCategoryAlt } from 'react-icons/bi'
 
 const AdminPage = () => {
 
@@ -24,13 +27,16 @@ const AdminPage = () => {
         <Container>
             <section className="choices">
                 <button onClick={() => setSession("Produtos")}>
-                    Produtos
+                    <MdProductionQuantityLimits className="icon"/>
+                    <span>Edite os Produtos</span>
                 </button>
                 <button onClick={() => setSession("Marcas")}>
-                    Marcas
+                    <TbBrandPagekit className="icon"/>
+                    <span>Edite as Marcas</span>
                 </button>
                 <button onClick={() => setSession("Categorias")}>
-                    Categorias
+                    <BiCategoryAlt className="icon"/>
+                    <span>Edite as Categorias</span>
                 </button>
             </section>
             {session === "Produtos" && <EditProductsSession array={products} />}

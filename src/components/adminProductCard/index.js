@@ -1,6 +1,7 @@
 import { Container } from "./styles"
 import { useState, useRef, useEffect } from "react"
-// import { api } from "../../services/api"
+import { api } from "../../services/api"
+import { BsChevronDoubleDown } from 'react-icons/bs'
 
 const AdminProductCard = ({item, products, setProducts, getProducts}) => {
 
@@ -14,77 +15,139 @@ const AdminProductCard = ({item, products, setProducts, getProducts}) => {
             }
         }
         document.addEventListener('mousedown', handler)
-        document.removeEventListener('mousedown', handler)
+        // document.removeEventListener('mousedown', handler)
     },[])
 
+    // declarações e funções pro dropdown do Editar fotos
+    const [showDropdownFt, setShowDropdownFt] = useState(false)
+    const contentRefFt = useRef()
+    useEffect(() => {
+        const handler = (event) => {
+            if(contentRefFt.current && !contentRefFt.current.contains(event.target)){
+                setShowDropdownFt(false)
+            }
+        }
+        document.addEventListener('mousedown', handler)
+        // document.removeEventListener('mousedown', handler)
+    },[])
 
     // funções do CRUD para os produtos
 
-    // const addProducts = async (nameNew, priceNew, brandNew, categoryNew, stockQuantityNew) => {
-    //     try{
-    //         const response = await api.post('/products/create', {product: 
-    //             {name: nameNew,
-    //              price: priceNew,
-    //              brand_id: brandNew,
-    //              category_id: categoryNew,
-    //              stock_quantity: stockQuantityNew}
-    //         })
-    //         if(response.data){
-    //             setProducts([...products, response.data])
-    //             alert('Produto criado com sucesso')
-    //         }
-    //     } catch(e){
-    //         alert(e)
-    //     }
-    // }
+    const removeProduct = async (idProduct) => {
+        try{
+            const response = await api.delete(`/products/delete/${idProduct}`)
+            if(response.data){
+                getProducts()
+                alert('Produto removido com sucesso')
+            }
+        } catch(e){
+            alert(e)
+        }
+    }
 
-    // const removeBrand = async (idProduct) => {
-    //     try{
-    //         const response = await api.delete(`/products/delete/${idProduct}`)
-    //         if(response.data){
-    //             getProducts()
-    //             alert('Produto removido com sucesso')
-    //         }
-    //     } catch(e){
-    //         alert(e)
-    //     }
-    // }
+    const updateProduct = async (idProduct, object) => {
+        try{
+            const response = await api.patch(`/products/update/${idProduct}`, {product: object})
+            if(response.data){
+                getProducts()
+                alert('Produto alterado com sucesso')
+            }
+        }catch(e){
+            alert(e)
+        }
+    }
 
-    // const updateBrand = async (idProduct, object) => {
-    //     try{
-    //         const response = await api.patch(`/products/update/${idProduct}`, {brand: object})
-    //         if(response.data){
-    //             getProducts()
-    //             alert('Produto alterado com sucesso')
-    //         }
-    //     }catch(e){
-    //         alert(e)
-    //     }
-    // }
+    // Funções para edição das imagens dos produtos
+
+    const addImages = async (files, idProduct) => {
+        const formData = new FormData()
+        formData.append('images[]', files[0])
+        console.log(files[0])
+        try {
+            const response = await api.post(`/products/add-image/${idProduct}`, formData)
+            if (response.data){
+                console.log(response.data)
+                alert('Foto adicionada com sucesso')
+            }
+        } catch(e) {
+            alert(e)
+        }
+    }
+
+    const clearImages = async (idProduct) => {
+        try {
+            const response = await api.delete(`/products/clear-images/${idProduct}`)
+            if (response.data){
+                alert('Fotos limpadas com sucesso')
+            }
+        } catch(e) {
+            alert(e)
+        }
+    }
 
 
     return (
         <Container>
-            <li key={item.id} className='productCard'>
+            <div className="header">
                 <h1>
                     {item.name}
                 </h1>
-                <div className="crud">
-                    <div className="editDropdown" ref={contentRef}>
-                        <button onClick={() => setShowDropdown(!showDropdown)}>Editar produto</button>
-                        <ul id={showDropdown? 'editShow' : ''}>
-                            <li>Editar preço</li>
-                            <li>Editar nome</li>
-                            <li>Editar descrição</li>
-                            <li>Editar quantidade de estoque</li>
-                            <li>Editar marca</li>
-                            <li>Editar categoria</li>
-                            <li>Adicionar foto</li>
-                        </ul>
-                    </div>
-                    <button>Excluir</button>
+                <span>
+                    {item.description}
+                </span>
+            </div>
+            <div className="crud">
+                <div className="dropdown" ref={contentRefFt}>
+                    <button onClick={() => setShowDropdownFt(!showDropdownFt)}>
+                        Fotos <BsChevronDoubleDown className="icon"
+                                id={showDropdownFt? "iconDown" : ''}/>
+                    </button>
+                    <ul id={showDropdownFt? 'editShow' : ''}>
+                        <li>
+                            <label htmlFor={`selecao-arquivo1${item.id}`}>
+                                Adicionar foto
+                            </label>
+                            <input type='file' id={`selecao-arquivo1${item.id}`}
+                             onChange={(event) => addImages(event.target.files, item.id)}/>
+                        </li>
+                        <li onClick={() => clearImages(item.id)}>
+                            Remover fotos
+                        </li>
+                    </ul>
                 </div>
-            </li>
+                <div className="dropdown" ref={contentRef}>
+                    <button onClick={() => setShowDropdown(!showDropdown)}>
+                        Editar produto <BsChevronDoubleDown className="icon"
+                                        id={showDropdown? "iconDown" : ''}/>
+                    </button>
+                    <ul id={showDropdown? 'editShow' : ''}>
+                        <li onClick={() => {
+                            const newPrice = parseInt(parseFloat(prompt('Digite o novo preço:'))*100)
+                            console.log(newPrice)
+                            updateProduct(item.id, {price: newPrice})
+                        }}>Editar preço</li>
+                        <li onClick={() => {
+                            updateProduct(item.id, {name: prompt('Digite o novo preço')})
+                        }}>Editar nome</li>
+                        <li onClick={() => {
+                            updateProduct(item.id, {description: prompt('Digite a nova descrição')})
+                        }}>Editar descrição</li>
+                        <li onClick={() => {
+                            updateProduct(item.id, {stock_quantity: parseInt(prompt('Digite a nova quantidade em estoque'))})
+                        }}>Editar estoque</li>
+                        <li onClick={() => {
+                            updateProduct(item.id, {brand_id: parseInt(prompt('Digite o id da nova marca'))})
+                        }}>Editar marca</li>
+                        <li onClick={() => {
+                            updateProduct(item.id, {category_id: parseInt(prompt('Digite o id da nova categoria'))})
+                        }}>Editar categoria</li>
+                        {/* <li>Adicionar foto</li> */}
+                    </ul>
+                </div>
+                <button onClick={() => {
+                    removeProduct(item.id)
+                }}>Excluir</button>
+            </div>
         </Container>
     )
 }
