@@ -13,6 +13,8 @@ const Dropdown = ({name, array, setObjectId}) => {
             }
         }
         document.addEventListener('mousedown', handler)
+
+        return () => document.removeEventListener('mousedown', handler)
     },[])
 
     // para deixar os botões do dropdown funcional

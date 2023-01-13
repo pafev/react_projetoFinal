@@ -25,6 +25,9 @@ const Header = () => {
         }
 
         window.addEventListener('scroll', posicaoScroll)
+
+        return () => window.removeEventListener('scroll', posicaoScroll)
+
     },[])
 
     // para quando o usuário estiver logado, a navbar alterar

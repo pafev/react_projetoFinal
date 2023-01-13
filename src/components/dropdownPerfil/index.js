@@ -17,6 +17,8 @@ const DropdownPerfil = () => {
             }
         }
         document.addEventListener('mousedown', handler)
+
+        return () => document.removeEventListener('mousedown', handler)
     },[])
 
     const {user, logout} = useUserContext()

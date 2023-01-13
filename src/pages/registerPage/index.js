@@ -32,7 +32,14 @@ const RegisterPage = () => {
 
     return (
         <Container>
-            <div className="content">
+            <form className="content" onSubmit={() => {
+                        if (validPassword) {
+                            register(email, password, name)
+                            navigate("/entrar")
+                        } else {
+                            alert("Repita a senha novamente")
+                        }
+                    }}>
                 <FaUsers className="icon" />
                 <div className="inputData">
                     <UserInput title={"E-mail"} placeholder={"Seu e-mail"} 
@@ -45,19 +52,12 @@ const RegisterPage = () => {
                                        setData={setValidPassword} valueToCompare={password}/>         
                 </div>
                 <div className="buttons">
-                    <button onClick={() => {
-                        if (validPassword) {
-                            register(email, password, name)
-                            navigate("/entrar")
-                        } else {
-                            alert("Repita a senha novamente")
-                        }
-                    }} ref={buttonRef}>
+                    <button type="submit" ref={buttonRef}>
                         Registrar
                     </button>
                     <Link to="/entrar" className="alternative">Já sou cliente</Link>
                 </div>
-            </div>
+            </form>
         </Container>
     )
 }
