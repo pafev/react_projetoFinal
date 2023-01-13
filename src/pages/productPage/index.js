@@ -15,8 +15,6 @@ const ProductPage = () => {
 
     // const {user} = useUserContext()
 
-    const [product, setProduct] = useState({})
-
     const [brandProducts, setBrandProducts] = useState(undefined)
 
     const [foto, setFoto] = useState(0)
@@ -34,8 +32,6 @@ const ProductPage = () => {
     useEffect(() => {
         api.get(`/products/index-brand/${product.brand_id}`).then(response => setBrandProducts(response.data))
     },[product.brand_id])
-
-    console.log(product.brand_id)
   
     return (
         <Container>
@@ -136,6 +132,8 @@ const ProductPage = () => {
                     }
                 </div>
             </div>
+    </Container>
+)
 }
 
 export default ProductPage
