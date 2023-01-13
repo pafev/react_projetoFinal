@@ -17,6 +17,7 @@ margin-top: 7rem;
 }
 .productPhoto{
     margin-left: 0px;
+    margin-bottom: 1rem;
     display: flex;
     direction: row;
     justify-content: space-between;
@@ -24,7 +25,6 @@ margin-top: 7rem;
 }
 .photoMain {
     display:flex;
-    margin-left: 10 rem;
 
     img{
         max-height: 10rem;
@@ -38,8 +38,11 @@ margin-top: 7rem;
     flex-direction: column;
 
     img{
-        height: 5rem;
-        width: 5rem
+        cursor: pointer;
+        height: 4rem;
+        width: 4rem;
+        margin-right: 1rem;
+        border: 1px solid gray;
 
     }
 }
@@ -48,7 +51,8 @@ margin-top: 7rem;
 
     display: flex;
     flex-direction: column;
-    margin-left: 7rem;
+    margin-left: 3rem;
+    margin-right: 2rem;
 
 
 }
@@ -61,9 +65,16 @@ margin-top: 7rem;
     /* padding-right: 5rem; */
     justify-content: space-evenly;
     margin-right: 3rem;
-    
-    
 
+    hr {
+        width:60%;
+        height: 3px ;
+    }
+    
+    
+.buyButton{
+    color: green;
+}
 }
 .buyQuantity{
     display: flex;
@@ -92,6 +103,11 @@ margin-top: 7rem;
     }
 }
 
-
+.productCards{
+    display: flex;
+    margin-left: 1rem;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
 
 `
